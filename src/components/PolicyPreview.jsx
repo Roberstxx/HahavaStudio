@@ -5,46 +5,55 @@ const PolicyPreview = () => {
   const items = [
     {
       title: "Bioseguridad",
+      text: "Protocolos visibles antes, durante y despu\u00e9s de cada servicio.",
       img: "/images/Uniforme1.png",
-      to: "/seguridad",
+      to: "/politicas",
     },
     {
-      title: "Esterilización",
+      title: "Esterilizaci\u00f3n",
+      text: "Herramientas limpias, desinfectadas y preparadas por clienta.",
       img: "/images/bioseguridad2.jpg",
-      to: "/seguridad",
+      to: "/politicas",
     },
     {
       title: "Material Descartable",
+      text: "Insumos de un solo uso cuando el servicio lo requiere.",
       img: "/images/bioseguridad3.png",
-      to: "/seguridad",
+      to: "/politicas",
     },
     {
-      title: "Políticas del Estudio",
+      title: "Pol\u00edticas del Estudio",
+      text: "Citas, anticipos, puntualidad y cuidados explicados con claridad.",
       img: "/images/politicas1.png",
       to: "/politicas",
     },
   ];
 
   return (
-    <section className="policy-preview py-16">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Políticas y Seguridad</h2>
-          <p className="section-subtitle">
-            Cuidamos cada detalle para garantizar tu bienestar y confianza.
-          </p>
-        </div>
-
-        <div className="policy-grid">
-          {items.map((item, i) => (
-            <Link key={i} to={item.to} className="policy-card">
-              <img src={item.img} alt={item.title} className="policy-image" />
-              <h3>{item.title}</h3>
-            </Link>
-          ))}
-        </div>
+    <div className="policy-preview">
+      <div className="section-header">
+        <h2 className="section-title">{"Pol\u00edticas"}</h2>
+        <p className="section-subtitle">
+          Cuidamos cada detalle para que tu cita se sienta clara, segura y profesional desde el primer mensaje.
+        </p>
       </div>
-    </section>
+
+      <div className="policy-grid" aria-label="Resumen de politicas del estudio">
+        {items.map((item) => (
+          <Link key={item.title} to={item.to} className="policy-card">
+            <img src={item.img} alt={item.title} className="policy-image" />
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </Link>
+        ))}
+      </div>
+
+      <div className="policy-preview__action">
+        <Link to="/politicas" className="btn btn-primary">
+          {"Ver pol\u00edticas completas"}
+        </Link>
+      </div>
+    </div>
   );
 };
 

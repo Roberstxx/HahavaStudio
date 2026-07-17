@@ -1,57 +1,35 @@
-// Mock data for client testimonials
 export const testimonials = [
   {
     id: 1,
-    name: 'Mariana R.',
-    service: 'Maquillaje de Novia',
+    name: 'Alexandra pastrana',
+    service: 'Servicios: Embellecimiento de cejas, U\u00f1as acr\u00edlicas, Sal\u00f3n de manicura, Depilaci\u00f3n de cejas con hilo, Pedicura y reservas online',
     rating: 5,
-    comment: '¡Increíble experiencia! El maquillaje duró perfecto toda la boda. Me sentí hermosa y segura. Totalmente recomendado para novias.',
-    date: '2025-09-15'
+    comment: 'Excelente atenci\u00f3n al llegar. La estilista es muy profesional en todos los aspectos. Recomiendo ampliamente el lugar e igual esta muy cute el lugar.',
+    date: '2025-07-03',
+    dateLabel: 'Hace un a\u00f1o'
   },
   {
     id: 2,
-    name: 'Carlos M.',
-    service: 'Corte Caballero',
+    name: 'Roberto Martinez',
+    service: 'U\u00f1as',
     rating: 5,
-    comment: 'Excelente atención y profesionalismo. El corte quedó justo como quería. El ambiente es muy limpio y cómodo.',
-    date: '2025-09-10'
+    comment: 'Fui a preguntar por direcciones y termin\u00e9 con u\u00f1as nuevas. Fue r\u00e1pido y me qued\u00f3 fabulosa.',
+    date: '2025-07-02',
+    dateLabel: 'Hace un a\u00f1o'
   },
   {
     id: 3,
-    name: 'Ana Patricia G.',
-    service: 'Uñas Acrílicas',
+    name: 'Emilio Sordo',
+    service: 'Servicio de peluquer\u00eda y belleza para hombres',
     rating: 5,
-    comment: 'Llevo 3 meses viniendo y siempre salgo feliz. Las uñas me duran perfectas y los diseños son hermosos. Vale cada peso.',
-    date: '2025-08-28'
-  },
-  {
-    id: 4,
-    name: 'Laura S.',
-    service: 'Peinado de Evento',
-    rating: 5,
-    comment: 'Mi peinado para la graduación quedó espectacular. Aguantó toda la noche sin un solo pasador suelto. ¡Magia pura!',
-    date: '2025-08-20'
-  },
-  {
-    id: 5,
-    name: 'Roberto L.',
-    service: 'Corte y Barba',
-    rating: 5,
-    comment: 'Muy profesional, limpio y puntual. El mejor lugar para corte de caballero en la zona.',
-    date: '2025-08-15'
-  },
-  {
-    id: 6,
-    name: 'Diana F.',
-    service: 'Maquillaje de Evento',
-    rating: 5,
-    comment: 'Fui para un evento corporativo y quedé encantada. El maquillaje era elegante pero natural, perfecto para la ocasión.',
-    date: '2025-07-30'
+    comment: 'Un excelente lugar con atenci\u00f3n por sobre todas las cosas, higi\u00e9nico, profesional y totalmente equivocado.',
+    date: '2025-07-01',
+    dateLabel: 'Hace un a\u00f1o'
   }
 ];
 
 export const getRecentTestimonials = (count = 3) => {
-  return testimonials
+  return [...testimonials]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, count);
 };

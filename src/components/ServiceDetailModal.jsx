@@ -69,7 +69,7 @@ const ServiceDetailModal = ({ service, onClose }) => {
 
             <div className="service-modal-meta">
               <span>{formatDuration(service.duration)}</span>
-              <span>{formatPriceRange(service.priceFrom, service.priceTo)}</span>
+              <span>{formatPriceRange(service.priceFrom, service.priceTo, service.priceLabel)}</span>
             </div>
 
             {amenityDetails.length > 0 && (

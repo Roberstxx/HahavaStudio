@@ -1,11 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Experience from './pages/Experience';
-import Safety from './pages/Safety';
 import Policies from './pages/Policies';
-import Philosophy from './pages/Philosophy';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
@@ -31,7 +29,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/seguridad',
-    element: <Safety />
+    element: <Navigate to="/politicas" replace />
   },
   {
     path: '/politicas',
@@ -39,7 +37,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/filosofia',
-    element: <Philosophy />
+    element: <Navigate to="/conocenos" replace />
   },
   {
     path: '/conocenos',

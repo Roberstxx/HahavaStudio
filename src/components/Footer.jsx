@@ -20,9 +20,8 @@ export default function Footer() {
           <ul>
             <li><Link to="/servicios">Servicios</Link></li>
             <li><Link to="/experiencia">Experiencia</Link></li>
-            <li><Link to="/seguridad">Seguridad</Link></li>
             <li><Link to="/politicas">Políticas</Link></li>
-            <li><Link to="/filosofia">Filosofía</Link></li>
+            <li><Link to="/conocenos">Conócenos</Link></li>
             <li><Link to="/faq">Preguntas Frecuentes</Link></li>
           </ul>
         </nav>

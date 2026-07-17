@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { formatPriceRange, formatDuration } from '../utils/formatters';
 import { buildWhatsAppUrl } from '../utils/whatsapp';
-import { amenitiesOptions } from '../data/services';
+import { amenitiesOptions, categories } from '../data/services';
 import Badge from './Badge';
 import './CardService.css';
 
@@ -14,26 +14,27 @@ const CardService = ({ service, onOpenDetail }) => {
   // ✅ Ruta corregida:
   // Antes: `/src/assets/images/${service.images[0]}`
   // Ahora: usamos directamente `service.images[0]` porque ya viene como '/images/...' desde services.js
-  const imagePath = service.images?.[0] ?? null;
+  const imagePath = service.images?.[0] || '/images/hero.webp';
+  const category = categories.find((item) => item.id === service.category);
 
   return (
     <article className="card-service">
       {/* Image */}
-      {imagePath && (
-        <div className="card-service-image-wrapper">
-          <img
-            src={imagePath}
-            alt={`Servicio de ${service.name}`}
-            className="card-service-image"
-            loading="lazy"
-          />
-          {service.badge && (
-            <div className="card-service-badge-overlay">
-              <Badge type={service.badge} />
-            </div>
-          )}
+      <div className="card-service-image-wrapper">
+        <img
+          src={imagePath}
+          alt={`Servicio de ${service.name}`}
+          className="card-service-image"
+          loading="lazy"
+        />
+        <div className="card-service-image-shade" />
+        <span className="card-service-category">{category?.name || 'Servicio'}</span>
+        {service.badge && (
+          <div className="card-service-badge-overlay">
+            <Badge type={service.badge} />
+          </div>
+        )}
         </div>
-      )}
 
       {/* Content */}
       <div className="card-service-content">
@@ -75,7 +76,7 @@ const CardService = ({ service, onOpenDetail }) => {
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
             <span className="price-text">
-              {formatPriceRange(service.priceFrom, service.priceTo)}
+              {formatPriceRange(service.priceFrom, service.priceTo, service.priceLabel)}
             </span>
           </div>
         </div>

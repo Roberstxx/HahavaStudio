@@ -80,7 +80,7 @@ const ServiceDetail = () => {
               </p>
               <p>
                 <strong>Precio:</strong>{' '}
-                {formatPriceRange(service.priceFrom, service.priceTo)}
+                {formatPriceRange(service.priceFrom, service.priceTo, service.priceLabel)}
               </p>
             </div>
 

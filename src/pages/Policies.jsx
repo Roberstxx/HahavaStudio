@@ -38,7 +38,7 @@ const Policies = () => {
 
   useEffect(() => {
     setDocumentMeta({
-      title: 'Políticas y Seguridad | Estudio Elegante',
+      title: 'Políticas | Estudio Elegante',
       description: 'Conoce nuestras políticas, recordatorios y protocolos de bioseguridad para una experiencia segura y confiable.'
     });
   }, []);
@@ -67,7 +67,7 @@ const Policies = () => {
             
             {/* ✅ ESTRUCTURA DE TÍTULO PRINCIPAL IGUAL A HOME */}
             <div className="section-header">
-              <h1 className="hero-title">Políticas & Bioseguridad</h1>
+              <h1 className="hero-title">Políticas</h1>
               <p className="hero-subtitle">Tu bienestar y confianza son nuestra prioridad.</p>
             </div>
             

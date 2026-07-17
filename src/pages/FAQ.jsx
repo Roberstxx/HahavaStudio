@@ -170,7 +170,7 @@ const FAQPage = () => {
             <div className="faq-page-container">
                 {/* Header de FAQ */}
                 <header className="faq-header">
-                    <div className="header-content">
+                    <div className="faq-header-content">
                         <h1>¿En qué podemos ayudarte?</h1>
                         <p>Encuentra información sobre nuestras políticas y servicios.</p>
                         <div className="search-box">

@@ -1,5 +1,5 @@
 .experience-page {
-  background: var(--clr-bg);
+  background: linear-gradient(180deg, var(--clr-bg), var(--clr-bg-warm));
 }
 
 .amenities-grid {
@@ -10,11 +10,12 @@
 }
 
 .amenity-tile {
-  background: var(--clr-surface);
-  border-radius: calc(var(--radius) * 1.1);
+  background: rgba(255, 255, 255, 0.9);
+  border: var(--border-soft);
+  border-radius: var(--radius-sm);
   padding: var(--space-6);
   text-align: left;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -43,8 +44,9 @@
 
 .premium-highlight {
   margin-top: var(--space-16);
-  background: linear-gradient(120deg, rgba(245, 227, 195, 0.45), rgba(247, 71, 128, 0.15));
-  border-radius: calc(var(--radius) * 1.5);
+  background: linear-gradient(120deg, var(--clr-accent-soft), var(--clr-bg-soft));
+  border: var(--border-soft);
+  border-radius: var(--radius);
   padding: var(--space-10);
   position: relative;
   overflow: hidden;
