@@ -5,7 +5,7 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 import FiltersBar from '../components/FiltersBar';
 import CardService from '../components/CardService';
 import ServiceDetailModal from '../components/ServiceDetailModal';
-import { services, amenitiesOptions } from '../data/services';
+import { services, amenitiesOptions, categories } from '../data/services';
 import { useFilters } from '../hooks/useFilters';
 import { setDocumentMeta } from '../utils/seo';
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -37,6 +37,42 @@ const Services = () => {
       <WhatsAppFloat />
       
       <main className="services-page">
+        <section className="services-hero-section">
+          <div className="container">
+            <div className="services-hero">
+              <div className="services-hero-copy">
+                <span className="services-eyebrow">Catálogo Ahavah</span>
+                <h1 className="services-hero-title">Servicios para verte impecable sin perder la calma</h1>
+                <p className="services-hero-text">
+                  Explora uñas, manicure, pedicure, nail art, cejas, maquillaje y cabello. Cada servicio se agenda con valoración profesional, anticipo y protocolos visibles.
+                </p>
+                <div className="services-hero-actions">
+                  <a href="#catalogo-servicios" className="btn btn-primary">Explorar catálogo</a>
+                  <a href="#niveles-experiencia" className="btn btn-secondary">Ver amenidades</a>
+                </div>
+              </div>
+
+              <aside className="services-hero-panel" aria-label="Resumen del catálogo">
+                <img src="/images/maquillaje1.webp" alt="Resultado profesional de maquillaje Ahavah" className="services-hero-image" />
+                <div className="services-hero-stats">
+                  <div>
+                    <strong>{services.length}</strong>
+                    <span>servicios</span>
+                  </div>
+                  <div>
+                    <strong>{categories.length}</strong>
+                    <span>categorías</span>
+                  </div>
+                  <div>
+                    <strong>30%</strong>
+                    <span>anticipo</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
         <div className="container py-8">
           {/* Banner */}
           <div className="services-banner mb-10" role="status" aria-live="polite">
@@ -49,14 +85,14 @@ const Services = () => {
 
           {/* Page Header */}
           <header className="page-header mb-12">
-            <h1 className="page-title">Nuestros Servicios</h1>
+            <h2 className="page-title">Elige tu servicio</h2>
             <p className="page-subtitle">
-              Servicios profesionales de belleza con los más altos estándares de calidad e higiene
+              Filtra el catálogo según lo que necesitas hoy: uñas, manicure, pedicure, nail art, cejas, maquillaje o cabello.
             </p>
           </header>
 
           {/* Amenities Legend */}
-          <section className="amenities-legend" aria-label="Amenidades por nivel">
+          <section id="niveles-experiencia" className="amenities-legend" aria-label="Amenidades por nivel">
             {amenitiesOptions.map(option => (
               <article key={option.id} className="amenity-card">
                 <div className="amenity-card-header">
@@ -73,7 +109,7 @@ const Services = () => {
           </section>
 
           {/* Filters and Services Grid */}
-          <div className="services-layout">
+          <div id="catalogo-servicios" className="services-layout">
             <FiltersBar
               filters={filters}
               updateFilter={updateFilter}

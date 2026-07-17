@@ -30,7 +30,7 @@ const CardReview = ({ testimonial }) => {
       </blockquote>
       
       <time className="card-review-date" dateTime={testimonial.date}>
-        {formatDate(testimonial.date)}
+        {testimonial.dateLabel || formatDate(testimonial.date)}
       </time>
     </article>
   );

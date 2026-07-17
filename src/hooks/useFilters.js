@@ -58,6 +58,14 @@ export const useFilters = (services) => {
       
       // Price range filter
       if (filters.priceRange) {
+        if (filters.priceRange === 'cotizacion') {
+          return typeof service.priceFrom !== 'number';
+        }
+
+        if (typeof service.priceFrom !== 'number') {
+          return false;
+        }
+
         const ranges = {
           'bajo': { min: 0, max: 300 },
           'medio': { min: 300, max: 600 },

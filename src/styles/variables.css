@@ -6,8 +6,12 @@
   --clr-primary-light: #ff6b9d;
   --clr-secondary: #FFE4EC;
   --clr-bg: #FFF9FB;
+  --clr-bg-soft: #FFF3F7;
+  --clr-bg-warm: #FFF8F2;
+  --clr-bg-muted: #FFFDFE;
   --clr-surface: #FFFFFF;
   --clr-accent: #F5E3C3;
+  --clr-accent-soft: #FFF1D8;
   
   /* Neutrals */
   --clr-gray-50: #FAFAFA;
@@ -79,6 +83,7 @@
   --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.12);
   --shadow-primary: 0 8px 24px rgba(247, 71, 128, 0.15);
+  --border-soft: 1px solid rgba(247, 71, 128, 0.14);
   
   /* Transitions */
   --speed-fast: 150ms;
@@ -107,10 +112,10 @@
   --header-offset: 72px;
   
   /* Custom Backgrounds - Tonos Crema */
-  --bg-page: 40 20% 98%;
-  --bg-cream-1: 40 25% 97%;
-  --bg-cream-2: 40 30% 96%;
-  --bg-cream-3: 35 35% 94%;
+  --bg-page: 330 100% 99%;
+  --bg-cream-1: 330 100% 98%;
+  --bg-cream-2: 24 100% 97%;
+  --bg-cream-3: 38 76% 91%;
   
   /* Custom Colors - Café */
   --cafe-900: 24 18% 30%;

@@ -1,8 +1,9 @@
 .card-service {
-  background-color: var(--clr-surface);
-  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
+  border: var(--border-soft);
   transition: all var(--speed) var(--easing);
   display: flex;
   flex-direction: column;
@@ -35,6 +36,30 @@
 
 .card-service:hover .card-service-image {
   transform: scale(1.05);
+}
+
+.card-service-image-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 42%, rgba(26, 26, 26, 0.48) 100%);
+  pointer-events: none;
+}
+
+.card-service-category {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--clr-primary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  backdrop-filter: blur(8px);
 }
 
 .card-service-badge-overlay {
@@ -72,10 +97,11 @@
 }
 
 .card-service-amenities .chip {
-  background-color: rgba(247, 71, 128, 0.08);
-  border-color: rgba(247, 71, 128, 0.35);
+  background-color: var(--clr-bg-soft);
+  border-color: rgba(247, 71, 128, 0.22);
   color: var(--clr-text);
   font-weight: var(--fw-medium);
+  border-radius: var(--radius-sm);
 }
 
 .card-service-amenities .chip strong {
@@ -92,7 +118,7 @@
   display: flex;
   gap: var(--space-6);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--clr-gray-200);
+  border-top: var(--border-soft);
 }
 
 .card-service-meta-item {

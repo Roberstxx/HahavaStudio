@@ -13,7 +13,13 @@ export const formatPrice = (price) => {
 /**
  * Format price range
  */
-export const formatPriceRange = (priceFrom, priceTo) => {
+export const formatPriceRange = (priceFrom, priceTo, priceLabel) => {
+  if (priceLabel) {
+    return priceLabel;
+  }
+  if (typeof priceFrom !== 'number') {
+    return 'Cotización personalizada';
+  }
   if (!priceTo || priceFrom === priceTo) {
     return formatPrice(priceFrom);
   }

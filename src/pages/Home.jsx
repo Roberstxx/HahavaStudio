@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
-import CardService from '../components/CardService';
 import CardReview from '../components/CardReview';
 
-import { services } from '../data/services';
 import { getRecentTestimonials } from '../data/testimonials';
 import { portfolioItems } from '../data/portfolio'; // <- usamos los mismos datos que Gallery
 
@@ -19,13 +17,40 @@ import heroImage from '../assets/images/hero.webp';
 import './Home.css';
 import PolicyPreview from '../components/PolicyPreview';
 
+const serviceCategories = [
+  {
+    title: 'U\u00f1as',
+    image: '/images/unas1.webp',
+    icon: '\u2726',
+    items: ['Gel semipermanente', 'Rubber base', 'Polygel / Builder', 'Press on personalizadas']
+  },
+  {
+    title: 'Cejas',
+    image: '/images/maquillaje1.webp',
+    icon: '\u25e0',
+    items: ['Dise\u00f1o de cejas', 'Laminado', 'Pigmentaci\u00f3n temporal', 'Planchado de cejas']
+  },
+  {
+    title: 'Maquillaje',
+    image: '/images/after-boda.webp',
+    icon: '\u2727',
+    items: ['Social', 'Glam', 'Novias y XV a\u00f1os', 'Editorial / art\u00edstico']
+  },
+  {
+    title: 'Cabello',
+    image: '/images/corte1.webp',
+    icon: '\u22c6',
+    items: ['Corte', 'Peinado', 'Planchado', 'Ondulado']
+  }
+];
+
 
 const Home = () => {
   useScrollToTop();
 
   useEffect(() => {
     setDocumentMeta({
-      title: 'Ahavah Beauty Studio | Amarte es Belleza',
+      title: 'Ahavah Beauty Studio | Amarse es Belleza',
       description:
         'En Ahavah te consentimos con servicios seguros, personalizados y llenos de amor. Agenda por WhatsApp y vive una experiencia profesional con bioseguridad.',
       ogImage: heroImage
@@ -45,7 +70,6 @@ const Home = () => {
   }, []);
 
   // ❗️Secciones que NO se tocan
-  const featuredServices = services.slice(0, 3);
   const recentReviews = getRecentTestimonials(3);
 
   /* ====== HOME: Preview de Galería por IDs (Opción B) ======
@@ -125,7 +149,7 @@ const Home = () => {
               <span>Amor propio & bioseguridad</span>
             </div>
 
-            <h1 className="hero-title">🌸 Amarte es Belleza 🌸</h1>
+            <h1 className="hero-title">🌸 Amarse es Belleza 🌸</h1>
             <p className="hero-subtitle">
               En Ahavah te consentimos con servicios seguros, personalizados y llenos de amor.
               Porque amarte siempre será el mejor plan.
@@ -150,14 +174,25 @@ const Home = () => {
         {/* 1) SERVICIOS (se deja igual) */}
         <section id="servicios" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
           <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Servicios Destacados</h2>
-              <p className="section-subtitle">Descubre nuestros tratamientos más populares</p>
+            <div className="section-header services-preview-header">
+              <h2 className="section-title">{"Nuestros servicios"}</h2>
+              <p className="section-subtitle">{"Una vista suave de lo que puedes vivir en Ahavah."}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3">
-              {featuredServices.map((service) => (
-                <CardService key={service.id} service={service} />
+            <div className="home-services-preview">
+              {serviceCategories.map((category) => (
+                <article key={category.title} className="home-service-category">
+                  <div className="home-service-image-wrap">
+                    <img src={category.image} alt={category.title} loading="lazy" />
+                    <span className="home-service-icon" aria-hidden="true">{category.icon}</span>
+                  </div>
+                  <h3>{category.title}</h3>
+                  <ul>
+                    {category.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
 
@@ -208,35 +243,32 @@ const Home = () => {
         </section>
 
         {/* 3) POLÍTICAS & SEGURIDAD (preview) */}
-        <section className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="politicas-seguridad" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
           <div className="container">
             <PolicyPreview />
           </div>
         </section>
 
 
-        {/* 4) FILOSOFÍA & CONÓCENOS (preview) */}
+        {/* 4) CONÓCENOS (preview) */}
         <section id="filosofia-conocenos" className="py-16">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Nuestra Esencia</h2>
+              <h2 className="section-title">Conócenos</h2>
               <p className="section-subtitle">Amor propio, detalle y profesionalismo.</p>
             </div>
 
             <div className="grid md:grid-cols-2">
               <article className="card">
-                <h3 className="mb-4">Filosofía</h3>
+                <h3 className="mb-4">Nuestra filosofía</h3>
                 <p>
                   Creemos que la belleza se siente tanto como se ve. No competimos en precio;
                   competimos en calidad y seguridad con productos premium y atención personalizada.
                 </p>
-                <div className="mt-6">
-                  <Link to="/filosofia" className="btn btn-primary btn-sm">Nuestra filosofía</Link>
-                </div>
               </article>
 
               <article className="card">
-                <h3 className="mb-4">Conócenos</h3>
+                <h3 className="mb-4">El estudio</h3>
                 <p>
                   Somos un equipo profesional que ama su oficio. Te recibimos en un espacio seguro,
                   limpio y cómodo para que disfrutes una experiencia a tu medida.
