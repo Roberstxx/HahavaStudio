@@ -23,10 +23,9 @@ const BeforeAfterSlider = ({
   return (
     <div className="before-after-container" role="img" aria-label={alt}>
       <div className="before-after-wrapper">
-        {/* Imagen "Después" (capa inferior) */}
         <div className="after-image-wrapper">
           <img
-            src={afterImage} // ✅ corregido: ya viene como "/images/after-boda.webp"
+            src={afterImage}
             alt={`Después - ${alt}`}
             className="comparison-image"
           />
@@ -35,13 +34,12 @@ const BeforeAfterSlider = ({
           </div>
         </div>
 
-        {/* Imagen "Antes" (capa superior con clip dinámico) */}
         <div
           className="before-image-wrapper"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <img
-            src={beforeImage} // ✅ corregido: ya viene como "/images/before-boda.webp"
+            src={beforeImage}
             alt={`Antes - ${alt}`}
             className="comparison-image"
           />
@@ -50,7 +48,6 @@ const BeforeAfterSlider = ({
           </div>
         </div>
 
-        {/* Línea del deslizador */}
         <div
           className="slider-line"
           style={{ left: `${sliderPosition}%` }}
@@ -77,7 +74,6 @@ const BeforeAfterSlider = ({
         </div>
       </div>
 
-      {/* Input tipo range para controlar el slider */}
       <input
         type="range"
         min="0"
@@ -90,7 +86,7 @@ const BeforeAfterSlider = ({
         aria-valuemin="0"
         aria-valuemax="100"
         aria-valuenow={sliderPosition}
-        aria-valuetext={`${sliderPosition}% visible de la imagen 'antes'`}
+        aria-valuetext={`${sliderPosition}% visible de la imagen antes`}
       />
     </div>
   );

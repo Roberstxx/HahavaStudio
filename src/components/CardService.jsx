@@ -11,15 +11,12 @@ const CardService = ({ service, onOpenDetail }) => {
     window.open(buildWhatsAppUrl({ servicio: service.name }), '_blank');
   };
 
-  // ✅ Ruta corregida:
-  // Antes: `/src/assets/images/${service.images[0]}`
-  // Ahora: usamos directamente `service.images[0]` porque ya viene como '/images/...' desde services.js
   const imagePath = service.images?.[0] || '/images/hero.webp';
   const category = categories.find((item) => item.id === service.category);
+  const price = formatPriceRange(service.priceFrom, service.priceTo, service.priceLabel);
 
   return (
     <article className="card-service">
-      {/* Image */}
       <div className="card-service-image-wrapper">
         <img
           src={imagePath}
@@ -34,20 +31,21 @@ const CardService = ({ service, onOpenDetail }) => {
             <Badge type={service.badge} />
           </div>
         )}
-        </div>
+      </div>
 
-      {/* Content */}
       <div className="card-service-content">
-        <h3 className="card-service-title">{service.name}</h3>
+        <div className="card-service-heading">
+          <h3 className="card-service-title">{service.name}</h3>
+          <strong className="card-service-price-mobile">{price}</strong>
+        </div>
 
         <p className="card-service-description">
           {service.shortDescription}
         </p>
 
-        {/* Amenities Chips */}
         {service.amenities && service.amenities.length > 0 && (
           <div className="card-service-amenities">
-            {service.amenities.map((amenity) => {
+            {service.amenities.slice(0, 2).map((amenity) => {
               const amenityInfo = amenitiesOptions.find((o) => o.id === amenity);
               if (!amenityInfo) return null;
               return (
@@ -60,7 +58,6 @@ const CardService = ({ service, onOpenDetail }) => {
           </div>
         )}
 
-        {/* Meta Info */}
         <div className="card-service-meta">
           <div className="card-service-meta-item">
             <svg className="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -70,18 +67,15 @@ const CardService = ({ service, onOpenDetail }) => {
             <span>{formatDuration(service.duration)}</span>
           </div>
 
-          <div className="card-service-meta-item">
+          <div className="card-service-meta-item card-service-price-desktop">
             <svg className="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="12" y1="1" x2="12" y2="23"></line>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
-            <span className="price-text">
-              {formatPriceRange(service.priceFrom, service.priceTo, service.priceLabel)}
-            </span>
+            <span className="price-text">{price}</span>
           </div>
         </div>
 
-        {/* CTAs */}
         <div className="card-service-actions">
           {onOpenDetail ? (
             <button
@@ -89,14 +83,14 @@ const CardService = ({ service, onOpenDetail }) => {
               onClick={() => onOpenDetail(service)}
               className="btn btn-outline btn-sm"
             >
-              Ver detalle
+              Detalle
             </button>
           ) : (
             <Link to={`/servicios/${service.slug}`} className="btn btn-outline btn-sm">
-              Ver detalle
+              Detalle
             </Link>
           )}
-          <button onClick={handleBooking} className="btn btn-primary btn-sm">
+          <button onClick={handleBooking} className="btn btn-primary btn-sm" type="button">
             Agendar
           </button>
         </div>

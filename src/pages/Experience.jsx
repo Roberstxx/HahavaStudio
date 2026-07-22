@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
@@ -19,12 +19,27 @@ const amenities = [
   { icon: '💳', title: 'Pago en línea', description: 'Links de pago y terminal contactless.' }
 ];
 
+const premiumFeatures = [
+  'Champán o vino de cortesía',
+  'Kit exclusivo de retoque',
+  'Asistencia personalizada',
+  'Fotógrafo profesional opcional',
+  'Preparación sin estrés'
+];
+
 const Experience = () => {
   useScrollToTop();
+  const gridRef = useRef(null);
 
   useEffect(() => {
-    setDocumentMeta({ title: 'Experiencia & Amenidades | Estudio Elegante' });
+    setDocumentMeta({ 
+      title: 'Experiencia & Amenidades | Ahavah Beauty Studio',
+      description: 'Descubre todas las amenidades y servicios premium que ofrecemos para hacer tu experiencia de belleza inolvidable.'
+    });
   }, []);
+
+  // Contador dinámico para el grid
+  const amenityCount = amenities.length;
 
   return (
     <div className="page-wrapper">
@@ -37,12 +52,22 @@ const Experience = () => {
             <h1 className="page-title">Experiencia & Amenidades</h1>
             <p className="page-subtitle">
               Cada visita está pensada para consentirte con detalles premium y un ambiente seguro.
+              Descubre todo lo que tenemos preparado para ti.
             </p>
           </header>
 
-          <section className="amenities-grid" aria-label="Amenidades disponibles">
-            {amenities.map(item => (
-              <article key={item.title} className="amenity-tile">
+          <section 
+            className="amenities-grid" 
+            ref={gridRef}
+            data-count={`${amenityCount} amenities`}
+            aria-label="Amenidades disponibles"
+          >
+            {amenities.map((item, index) => (
+              <article 
+                key={item.title} 
+                className="amenity-tile"
+                style={{ animationDelay: `${0.05 * (index + 1)}s` }}
+              >
                 <div className="amenity-icon" aria-hidden="true">{item.icon}</div>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
@@ -52,11 +77,21 @@ const Experience = () => {
 
           <section className="premium-highlight" aria-label="Experiencia premium para novias y eventos">
             <div className="premium-highlight-content">
-              <span className="premium-badge">Premium</span>
-              <h2>Para novias y eventos</h2>
+              <span className="premium-badge">✦ Premium</span>
+              <h2>Para novias y eventos especiales</h2>
               <p>
-                Incluimos champán o vino de cortesía, kit exclusivo de retoque y asistencia personalizada
-                durante tu preparación. Queremos que vivas un momento inolvidable.
+                Queremos que tu día especial sea perfecto. Por eso, incluimos servicios exclusivos
+                para que vivas una experiencia inolvidable llena de detalles y cuidado personalizado.
+              </p>
+              
+              <div className="premium-features">
+                {premiumFeatures.map((feature, index) => (
+                  <span key={index}>{feature}</span>
+                ))}
+              </div>
+              
+              <p style={{ marginTop: 'var(--space-4)', fontSize: 'var(--fs-sm)', color: 'var(--clr-gray-500)' }}>
+                * Aplican términos y condiciones. Consulta disponibilidad al agendar tu cita.
               </p>
             </div>
           </section>

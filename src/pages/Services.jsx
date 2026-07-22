@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
@@ -23,19 +23,31 @@ const Services = () => {
     clearFilters,
     hasActiveFilters
   } = useFilters(services);
-  
+
   useEffect(() => {
     setDocumentMeta({
-      title: 'Servicios de Belleza | Estudio Elegante',
-      description: 'Catálogo completo de servicios: uñas acrílicas, maquillaje profesional, peinados elegantes, cortes y más. Todos con cita previa y anticipo.'
+      title: 'Servicios de Belleza | Ahavah Beauty Studio',
+      description:
+        'Catálogo completo de servicios: uñas acrílicas, maquillaje profesional, peinados elegantes, cortes y más. Todos con cita previa y anticipo.'
     });
   }, []);
-  
+
+  const categoryCounts = useMemo(() => {
+    return services.reduce((acc, service) => {
+      acc[service.category] = (acc[service.category] || 0) + 1;
+      return acc;
+    }, {});
+  }, []);
+
+  const selectedCategoryName = filters.category
+    ? categories.find(category => category.id === filters.category)?.name
+    : 'Todos los servicios';
+
   return (
     <div className="page-wrapper">
       <Header />
       <WhatsAppFloat />
-      
+
       <main className="services-page">
         <section className="services-hero-section">
           <div className="container">
@@ -44,7 +56,8 @@ const Services = () => {
                 <span className="services-eyebrow">Catálogo Ahavah</span>
                 <h1 className="services-hero-title">Servicios para verte impecable sin perder la calma</h1>
                 <p className="services-hero-text">
-                  Explora uñas, manicure, pedicure, nail art, cejas, maquillaje y cabello. Cada servicio se agenda con valoración profesional, anticipo y protocolos visibles.
+                  Explora uñas, manicure, pedicure, nail art, cejas, maquillaje y cabello.
+                  Cada servicio se agenda con valoración profesional, anticipo y protocolos visibles.
                 </p>
                 <div className="services-hero-actions">
                   <a href="#catalogo-servicios" className="btn btn-primary">Explorar catálogo</a>
@@ -73,9 +86,8 @@ const Services = () => {
           </div>
         </section>
 
-        <div className="container py-8">
-          {/* Banner */}
-          <div className="services-banner mb-10" role="status" aria-live="polite">
+        <div className="container services-main-container">
+          <div className="services-banner" role="status" aria-live="polite">
             <h2 className="services-banner-title">Antes de agendar</h2>
             <ul className="services-banner-list">
               <li>Todos los servicios son con cita previa y requieren anticipo para confirmar.</li>
@@ -83,15 +95,6 @@ const Services = () => {
             </ul>
           </div>
 
-          {/* Page Header */}
-          <header className="page-header mb-12">
-            <h2 className="page-title">Elige tu servicio</h2>
-            <p className="page-subtitle">
-              Filtra el catálogo según lo que necesitas hoy: uñas, manicure, pedicure, nail art, cejas, maquillaje o cabello.
-            </p>
-          </header>
-
-          {/* Amenities Legend */}
           <section id="niveles-experiencia" className="amenities-legend" aria-label="Amenidades por nivel">
             {amenitiesOptions.map(option => (
               <article key={option.id} className="amenity-card">
@@ -108,7 +111,6 @@ const Services = () => {
             ))}
           </section>
 
-          {/* Filters and Services Grid */}
           <div id="catalogo-servicios" className="services-layout">
             <FiltersBar
               filters={filters}
@@ -116,17 +118,20 @@ const Services = () => {
               toggleTag={toggleTag}
               clearFilters={clearFilters}
               hasActiveFilters={hasActiveFilters}
+              categoryCounts={categoryCounts}
             />
-            
-            <div className="services-content">
-              {/* Results Count */}
+
+            <section className="services-content" aria-labelledby="services-results-title">
               <div className="services-meta">
+                <div>
+                  <span className="services-results-kicker">Catálogo</span>
+                  <h2 id="services-results-title">{selectedCategoryName}</h2>
+                </div>
                 <p className="results-count">
                   {filteredServices.length} {filteredServices.length === 1 ? 'servicio encontrado' : 'servicios encontrados'}
                 </p>
               </div>
-              
-              {/* Services Grid */}
+
               {filteredServices.length > 0 ? (
                 <div className="services-grid">
                   {filteredServices.map(service => (
@@ -138,24 +143,24 @@ const Services = () => {
                   ))}
                 </div>
               ) : (
-                // Empty State
                 <div className="empty-state">
-                  <div className="empty-state-icon">🔍</div>
+                  <div className="empty-state-icon">⌕</div>
                   <h3 className="empty-state-title">No se encontraron servicios</h3>
                   <p className="empty-state-text">
-                    Intenta ajustar tus filtros o realizar una búsqueda diferente
+                    Intenta ajustar tus filtros o realizar una búsqueda diferente.
                   </p>
                   {hasActiveFilters && (
                     <button
                       onClick={clearFilters}
                       className="btn btn-primary mt-4"
+                      type="button"
                     >
                       Limpiar filtros
                     </button>
                   )}
                 </div>
               )}
-            </div>
+            </section>
           </div>
         </div>
       </main>
