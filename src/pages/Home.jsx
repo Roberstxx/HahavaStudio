@@ -1,13 +1,15 @@
 import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { Crown, HandHeart, Sparkles } from 'lucide-react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
 import CardReview from '../components/CardReview';
+import PolicyPreview from '../components/PolicyPreview';
 
 import { getRecentTestimonials } from '../data/testimonials';
-import { portfolioItems } from '../data/portfolio'; // <- usamos los mismos datos que Gallery
+import { portfolioItems, getFeaturedPortfolio } from '../data/portfolio';
 
 import { buildWhatsAppUrl } from '../utils/whatsapp';
 import { setDocumentMeta, generateBeautySalonJsonLd, injectJsonLd } from '../utils/seo';
@@ -15,7 +17,6 @@ import useScrollToTop from '../hooks/useScrollToTop';
 
 import heroImage from '../assets/images/hero.webp';
 import './Home.css';
-import PolicyPreview from '../components/PolicyPreview';
 
 const serviceCategories = [
   {
@@ -44,6 +45,23 @@ const serviceCategories = [
   }
 ];
 
+const brandValues = [
+  {
+    title: 'Filosof\u00eda',
+    text: 'Unimos amor propio, bioseguridad y detalle para que cada cita se sienta cuidada desde el inicio.',
+    Icon: Sparkles
+  },
+  {
+    title: 'Excelencia',
+    text: 'Buscamos calidad real en la t\u00e9cnica, los productos y cada peque\u00f1o detalle.',
+    Icon: Crown
+  },
+  {
+    title: 'Servicio',
+    text: 'Te acompa\u00f1amos con atenci\u00f3n personalizada antes, durante y despu\u00e9s.',
+    Icon: HandHeart
+  }
+];
 
 const Home = () => {
   useScrollToTop();
@@ -58,24 +76,20 @@ const Home = () => {
     injectJsonLd(generateBeautySalonJsonLd());
   }, []);
 
-  // Efecto de revelado al hacer scroll
   useEffect(() => {
     const els = Array.from(document.querySelectorAll('main > section'));
     els.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in-view');
+      });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
 
-  // ❗️Secciones que NO se tocan
   const recentReviews = getRecentTestimonials(3);
 
-  /* ====== HOME: Preview de Galería por IDs (Opción B) ======
-    Usa IDs reales del dataset y arma src igual que Gallery.jsx:
-    /src/assets/images/${file}
- */
   const HOME_GALLERY_IDS = [
     'boda-transformation',
     'peinado-recogido-evento',
@@ -83,12 +97,10 @@ const Home = () => {
   ];
 
   const galleryPreview = useMemo(() => {
-    // Buscar por ID
     const picked = HOME_GALLERY_IDS
       .map(id => portfolioItems.find(it => it.id === id))
       .filter(Boolean);
 
-    // Completar hasta 3 con featured…
     if (picked.length < 3) {
       const extras = getFeaturedPortfolio().filter(
         it => !picked.some(p => p.id === it.id)
@@ -96,7 +108,6 @@ const Home = () => {
       picked.push(...extras);
     }
 
-    // …y si aún faltan, con los primeros que no estén ya
     if (picked.length < 3) {
       const extras2 = portfolioItems.filter(
         it => !picked.some(p => p.id === it.id)
@@ -110,11 +121,9 @@ const Home = () => {
         id: it.id || `hg-${idx}`,
         title: it.title || 'Resultado Ahavah',
         src: file.startsWith('/images/') ? file : `/images/${file}`,
-
       };
     });
   }, []);
-
 
   return (
     <div className="page-wrapper">
@@ -122,57 +131,50 @@ const Home = () => {
       <WhatsAppFloat />
 
       <main>
-        {/* HERO */}
-        <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
-          <div className="hero-overlay"></div>
-          <div className="container hero-content">
-            {/* Badge */}
-            <div
-              className="beauty-badge"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                background:
-                  'linear-gradient(90deg, rgba(247,71,128,0.85), rgba(255,228,236,0.7))',
-                color: '#fff',
-                fontWeight: 500,
-                fontSize: 'var(--fs-sm)',
-                padding: '6px 14px',
-                borderRadius: '9999px',
-                backdropFilter: 'blur(6px)',
-                boxShadow: '0 2px 6px rgba(0,0,0,.15)',
-                marginBottom: 'var(--space-6)'
-              }}
-            >
-              <span role="img" aria-label="sparkles">✨</span>
-              <span>Amor propio & bioseguridad</span>
+        <section className="hero">
+          <div className="hero-split">
+            <div className="hero-content">
+              <span className="hero-kicker">Amor en cada detalle</span>
+              <h1 className="hero-title">
+                <span>AHAVAH</span>
+                <small>Beauty Studio</small>
+              </h1>
+              <p className="hero-subtitle">
+                {"M\u00e1s que belleza exterior, creamos experiencias que realzan tu esencia y te hacen sentir segura, valiosa y \u00fanica."}
+              </p>
+
+              <div className="hero-ctas">
+                <a
+                  href={buildWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-lg"
+                >
+                  Agenda tu cita
+                </a>
+                <Link to="/servicios" className="btn btn-secondary btn-lg">
+                  Ver servicios
+                </Link>
+              </div>
+
+              <div className="hero-proof" aria-label="Diferenciales de Ahavah">
+                <span>{"Atenci\u00f3n personalizada"}</span>
+                <span>Protocolos visibles</span>
+                <span>Productos profesionales</span>
+              </div>
             </div>
 
-            <h1 className="hero-title">🌸 Amarse es Belleza 🌸</h1>
-            <p className="hero-subtitle">
-              En Ahavah te consentimos con servicios seguros, personalizados y llenos de amor.
-              Porque amarte siempre será el mejor plan.
-            </p>
-
-            <div className="hero-ctas">
-              <a
-                href={buildWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary btn-lg"
-              >
-                Agenda tu cita
-              </a>
-              <Link to="/servicios" className="btn btn-secondary btn-lg">
-                Ver servicios
-              </Link>
+            <div className="hero-media">
+              <img src={heroImage} alt="Interior de Ahavah Beauty Studio" />
+              <div className="hero-media-badge">
+                <strong>{"Amarse es belleza"}</strong>
+                <span>{"Cuidado \u2022 Bioseguridad \u2022 Belleza"}</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 1) SERVICIOS (se deja igual) */}
-        <section id="servicios" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="servicios" className="py-16">
           <div className="container">
             <div className="section-header services-preview-header">
               <h2 className="section-title">{"Nuestros servicios"}</h2>
@@ -204,118 +206,124 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 2) EXPERIENCIA & AMENIDADES (preview) */}
         <section id="experiencia-amenidades" className="py-16">
           <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Experiencia Ahavah</h2>
-              <p className="section-subtitle">
-                Comodidad, detalle y un ambiente pensado para ti: snacks & bebidas, TV con streaming,
-                Wi-Fi, higiene visible y privacidad.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2">
-              <article className="card">
-                <h3 className="mb-4">Tu visita, paso a paso</h3>
-                <ul className="flex flex-col gap-3">
-                  <li>• Recepción y evaluación breve de estilo.</li>
-                  <li>• Productos profesionales y materiales esterilizados.</li>
-                  <li>• Zona cómoda con bebida/snack según paquete.</li>
-                  <li>• Recomendaciones de cuidado post-servicio.</li>
-                </ul>
-              </article>
-
-              <article className="card">
-                <h3 className="mb-4">Amenidades</h3>
-                <ul className="flex flex-col gap-3">
-                  <li>• Wi-Fi ilimitado y cargadores disponibles.</li>
-                  <li>• A/A, música ambiental y TV con streaming.</li>
-                  <li>• Estacionamiento y privacidad.</li>
-                  <li>• Premium eventos/novias: champán o vino de cortesía.</li>
-                </ul>
-                <div className="mt-6">
-                  <Link to="/experiencia" className="btn btn-primary btn-sm">Ver experiencia completa</Link>
+            <div className="home-experience">
+              <div className="home-experience-media">
+                <img src={heroImage} alt="Interior de Ahavah Beauty Studio" loading="lazy" decoding="async" />
+                <div className="home-experience-badge">
+                  <strong>{"Cita cuidada"}</strong>
+                  <span>{"Privacidad \u2022 Higiene \u2022 Detalle"}</span>
                 </div>
-              </article>
+              </div>
+
+              <div className="home-experience-content">
+                <span className="home-experience-kicker">Experiencia Ahavah</span>
+                <h2 className="section-title">Tu momento, sin prisas</h2>
+                <p className="section-subtitle">
+                  {"Un ambiente limpio, c\u00f3modo y preparado para que disfrutes cada servicio desde que llegas hasta que sales lista."}
+                </p>
+
+                <div className="home-experience-steps" aria-label="Momentos de la experiencia Ahavah">
+                  <article>
+                    <span>01</span>
+                    <h3>{"Te recibimos"}</h3>
+                    <p>{"Evaluamos tu estilo y lo que quieres lograr antes de iniciar."}</p>
+                  </article>
+                  <article>
+                    <span>02</span>
+                    <h3>{"Cuidamos cada detalle"}</h3>
+                    <p>{"Usamos materiales preparados, productos profesionales e higiene visible."}</p>
+                  </article>
+                  <article>
+                    <span>03</span>
+                    <h3>{"Sales tranquila"}</h3>
+                    <p>{"Te damos recomendaciones para mantener tu resultado por m\u00e1s tiempo."}</p>
+                  </article>
+                </div>
+
+                <div className="home-experience-amenities" aria-label="Amenidades">
+                  <span>Wi-Fi</span>
+                  <span>{"Bebidas"}</span>
+                  <span>Streaming</span>
+                  <span>Privacidad</span>
+                </div>
+
+                <Link to="/experiencia" className="btn btn-primary btn-sm">Ver experiencia completa</Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 3) POLÍTICAS & SEGURIDAD (preview) */}
-        <section id="politicas-seguridad" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="politicas-seguridad" className="py-16">
           <div className="container">
             <PolicyPreview />
           </div>
         </section>
 
-
-        {/* 4) CONÓCENOS (preview) */}
         <section id="filosofia-conocenos" className="py-16">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Conócenos</h2>
-              <p className="section-subtitle">Amor propio, detalle y profesionalismo.</p>
+              <h2 className="section-title">{"Con\u00f3cenos"}</h2>
+              <p className="section-subtitle">
+                {"Nuestra filosof\u00eda une amor propio, bioseguridad, detalle y servicio profesional."}
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2">
-              <article className="card">
-                <h3 className="mb-4">Nuestra filosofía</h3>
-                <p>
-                  Creemos que la belleza se siente tanto como se ve. No competimos en precio;
-                  competimos en calidad y seguridad con productos premium y atención personalizada.
-                </p>
-              </article>
+            <div className="home-brand-values" aria-label="Valores de Ahavah">
+              {brandValues.map(({ Icon, ...value }) => (
+                <article key={value.title} className="home-brand-value">
+                  <span className="home-brand-value-icon" aria-hidden="true">
+                    <Icon size={30} strokeWidth={1.6} />
+                  </span>
+                  <h3>{value.title}</h3>
+                  <p>{value.text}</p>
+                </article>
+              ))}
+            </div>
 
-              <article className="card">
-                <h3 className="mb-4">El estudio</h3>
-                <p>
-                  Somos un equipo profesional que ama su oficio. Te recibimos en un espacio seguro,
-                  limpio y cómodo para que disfrutes una experiencia a tu medida.
-                </p>
-                <div className="mt-6">
-                  <Link to="/conocenos" className="btn btn-primary btn-sm">Conoce al estudio</Link>
-                </div>
-              </article>
+            <div className="home-brand-values-action">
+              <Link to="/conocenos" className="btn btn-primary btn-sm">Conoce el estudio</Link>
             </div>
           </div>
         </section>
 
-        {/* 5) GALERÍA (preview) */}
-        <section id="galeria" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="galeria" className="py-16">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Galería</h2>
+              <h2 className="section-title">{"Galer\u00eda"}</h2>
               <p className="section-subtitle">Un vistazo a nuestros resultados</p>
             </div>
 
-            <div className="grid md:grid-cols-3">
-              {galleryPreview.map((item) => (
-                <img
-                  key={item.id}
-                  src={item.src}
-                  alt={item.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="card-image"
-                  style={{ height: 220, objectFit: 'cover' }}
-                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = heroImage; }}
-                />
+            <div className="home-gallery-preview">
+              {galleryPreview.map((item, index) => (
+                <figure key={item.id} className={`home-gallery-item home-gallery-item-${index + 1}`}>
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = heroImage; }}
+                  />
+                  <figcaption>
+                    <span>{index === 0 ? 'Destacado' : 'Resultado'}</span>
+                    <strong>{item.title}</strong>
+                  </figcaption>
+                </figure>
               ))}
             </div>
 
             <div className="text-center mt-8">
-              <Link to="/galeria" className="btn btn-primary">Ver galería completa</Link>
+              <Link to="/galeria" className="btn btn-primary">{"Ver galer\u00eda completa"}</Link>
             </div>
           </div>
         </section>
 
-        {/* 6) OPINIONES (se deja igual) */}
-        <section id="opiniones" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="opiniones" className="py-16">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Lo que dicen nuestras clientas</h2>
-              <p className="section-subtitle">Experiencias reales de personas como tú</p>
+              <p className="section-subtitle">{"Experiencias reales de personas como t\u00fa"}</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3">
@@ -326,26 +334,25 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 7) FAQ (preview) */}
         <section id="faq" className="py-16">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Preguntas frecuentes</h2>
-              <p className="section-subtitle">Resolvemos tus dudas más comunes</p>
+              <p className="section-subtitle">{"Resolvemos tus dudas m\u00e1s comunes"}</p>
             </div>
 
             <div className="grid md:grid-cols-3">
               <article className="card">
-                <h3 className="mb-2">¿Cómo reservo?</h3>
+                <h3 className="mb-2">{"\u00bfC\u00f3mo reservo?"}</h3>
                 <p>Por WhatsApp o desde Contacto. Confirmamos fecha y hora con anticipo.</p>
               </article>
               <article className="card">
-                <h3 className="mb-2">¿Qué medidas de higiene aplican?</h3>
-                <p>Esterilización por cliente y superficies desinfectadas en cada servicio.</p>
+                <h3 className="mb-2">{"\u00bfQu\u00e9 medidas de higiene aplican?"}</h3>
+                <p>{"Esterilizaci\u00f3n por cliente y superficies desinfectadas en cada servicio."}</p>
               </article>
               <article className="card">
-                <h3 className="mb-2">¿Formas de pago?</h3>
-                <p>Efectivo y transferencia. Consulta políticas para más detalles.</p>
+                <h3 className="mb-2">{"\u00bfFormas de pago?"}</h3>
+                <p>{"Efectivo y transferencia. Consulta pol\u00edticas para m\u00e1s detalles."}</p>
               </article>
             </div>
 
@@ -355,13 +362,12 @@ const Home = () => {
           </div>
         </section>
 
-        {/* 8) CONTACTO / RESERVA (preview) */}
-        <section id="contacto" className="py-16" style={{ backgroundColor: 'var(--clr-bg)' }}>
+        <section id="contacto" className="py-16">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Contacto / Reserva</h2>
               <p className="section-subtitle">
-                Agenda por WhatsApp o escríbenos. Aquí encuentras nuestras redes y cómo llegar.
+                {"Agenda por WhatsApp o escr\u00edbenos. Aqu\u00ed encuentras nuestras redes y c\u00f3mo llegar."}
               </p>
             </div>
 

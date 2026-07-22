@@ -25,22 +25,22 @@ const Header = () => {
   };
   
   return (
-    <header className="header" role="banner">
+    <header className="ahavah-header" role="banner">
       <div className="container">
-        <div className="header-content">
+        <div className="ahavah-header__content">
           {/* Logo */}
-          <Link to="/" className="logo" aria-label="Ir a inicio">
-            <span className="logo-text">AHAVAH BEAUTY STUDIO</span>
+          <Link to="/" className="ahavah-header__logo" aria-label="Ir a inicio">
+            <span className="ahavah-header__logo-text">AHAVAH BEAUTY STUDIO</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="nav-desktop" role="navigation" aria-label="Navegación principal">
-            <ul className="nav-list">
+          <nav className="ahavah-header__nav" role="navigation" aria-label="Navegación principal">
+            <ul className="ahavah-header__nav-list">
               {navigation.map(item => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+                    className={`ahavah-header__nav-link ${isActive(item.path) ? 'is-active' : ''}`}
                     aria-current={isActive(item.path) ? 'page' : undefined}
                   >
                     {item.name}
@@ -53,7 +53,7 @@ const Header = () => {
           {/* CTA Button */}
           <button
             onClick={handleBooking}
-            className="btn btn-primary header-cta"
+            className="btn btn-primary ahavah-header__cta"
             aria-label="Reservar cita por WhatsApp"
           >
             Reservar
@@ -61,24 +61,24 @@ const Header = () => {
           
           {/* Mobile Menu Button */}
           <button
-            className="menu-toggle"
+            className="ahavah-header__menu-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Abrir menú de navegación"
           >
-            <span className="menu-icon"></span>
+            <span className="ahavah-header__menu-icon"></span>
           </button>
         </div>
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="nav-mobile" role="navigation">
-            <ul className="nav-mobile-list">
+          <nav className="ahavah-header__mobile-nav" role="navigation">
+            <ul className="ahavah-header__mobile-list">
               {navigation.map(item => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className={`nav-mobile-link ${isActive(item.path) ? 'active' : ''}`}
+                    className={`ahavah-header__mobile-link ${isActive(item.path) ? 'is-active' : ''}`}
                     onClick={() => setIsMenuOpen(false)}
                     aria-current={isActive(item.path) ? 'page' : undefined}
                   >
@@ -92,7 +92,7 @@ const Header = () => {
                     handleBooking();
                     setIsMenuOpen(false);
                   }}
-                  className="btn btn-primary nav-mobile-cta"
+                  className="btn btn-primary ahavah-header__mobile-cta"
                 >
                   Reservar
                 </button>

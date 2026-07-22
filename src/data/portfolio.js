@@ -1,12 +1,12 @@
-// Mock data for portfolio/gallery items
+// Portfolio/gallery items
 export const portfolioItems = [
   {
     id: 'boda-transformation',
     title: 'Transformación Novia',
     category: 'maquillaje',
     serviceId: 'maquillaje-evento',
-    beforeImage: '/images/before-boda.webp',
-    afterImage: '/images/after-boda.webp',
+    beforeImage: '/images/NoviaAntes.JPG',
+    afterImage: '/images/NoviaDespues.JPG',
     description: 'Maquillaje y peinado completo para novia. Look romántico y elegante con técnica de larga duración.',
     featured: true
   },
