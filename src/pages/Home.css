@@ -1075,22 +1075,14 @@
   padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-6), 4vw, var(--space-10));
   border: 1px solid rgba(255, 255, 255, 0.52);
   border-radius: clamp(18px, 2vw, 28px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 244, 248, 0.94));
+  background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 24px 58px rgba(199, 27, 91, 0.18);
   text-align: center;
   transition: transform var(--speed) var(--easing), background var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
 .home-brand-value::after {
-  content: "";
-  position: absolute;
-  left: clamp(var(--space-5), 2vw, var(--space-8));
-  right: clamp(var(--space-5), 2vw, var(--space-8));
-  top: 0;
-  height: 4px;
-  border-radius: 0 0 var(--radius-full) var(--radius-full);
-  background: linear-gradient(90deg, #f74780, #ffc1d5, #f74780);
+  display: none;
 }
 
 .home-brand-value:hover {
@@ -1113,7 +1105,7 @@
   border: 1px solid rgba(247, 71, 128, 0.18);
   background: linear-gradient(145deg, #fff, #ffe4ec);
   color: #f74780;
-  box-shadow: 0 18px 36px rgba(199, 27, 91, 0.2), inset 0 0 0 8px rgba(247, 71, 128, 0.04);
+  box-shadow: 0 18px 36px rgba(199, 27, 91, 0.18);
   transition: transform var(--speed) var(--easing), color var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
