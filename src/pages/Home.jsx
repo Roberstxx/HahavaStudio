@@ -240,7 +240,7 @@ const Home = () => {
         <section id="opiniones" className="py-16">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Lo que dicen nuestras clientas</h2>
+              <h2 className="section-title">Lo que dicen nuestros clientes</h2>
               <p className="section-subtitle">{"Experiencias reales de personas como t\u00fa"}</p>
             </div>
 
