@@ -115,17 +115,13 @@ footer {
 }
 
 /* Alternating Section Backgrounds */
-#servicios,
 #politicas-seguridad,
 #galeria,
 #contacto {
   background: var(--clr-bg-soft);
 }
 
-#experiencia-amenidades,
-#filosofia-conocenos,
-#opiniones,
-#faq {
+#experiencia-amenidades {
   background: var(--clr-bg-warm);
 }
 

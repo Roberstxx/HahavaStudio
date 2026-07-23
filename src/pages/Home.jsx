@@ -206,6 +206,52 @@ const Home = () => {
           </div>
         </section>
 
+        <section id="galeria" className="py-16">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">{"Galer\u00eda"}</h2>
+              <p className="section-subtitle">Un vistazo a nuestros resultados</p>
+            </div>
+
+            <div className="home-gallery-preview">
+              {galleryPreview.map((item, index) => (
+                <figure key={item.id} className={`home-gallery-item home-gallery-item-${index + 1}`}>
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = heroImage; }}
+                  />
+                  <figcaption>
+                    <span>{index === 0 ? 'Destacado' : 'Resultado'}</span>
+                    <strong>{item.title}</strong>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link to="/galeria" className="btn btn-primary">{"Ver galer\u00eda completa"}</Link>
+            </div>
+          </div>
+        </section>
+
+        <section id="opiniones" className="py-16">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">Lo que dicen nuestros clientes</h2>
+              <p className="section-subtitle">{"Experiencias reales de personas como t\u00fa"}</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3">
+              {recentReviews.map((review) => (
+                <CardReview key={review.id} testimonial={review} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="experiencia-amenidades" className="py-16">
           <div className="container">
             <div className="home-experience">
@@ -255,12 +301,6 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="politicas-seguridad" className="py-16">
-          <div className="container">
-            <PolicyPreview />
-          </div>
-        </section>
-
         <section id="filosofia-conocenos" className="py-16">
           <div className="container">
             <div className="section-header">
@@ -288,49 +328,9 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="galeria" className="py-16">
+        <section id="politicas-seguridad" className="py-16">
           <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">{"Galer\u00eda"}</h2>
-              <p className="section-subtitle">Un vistazo a nuestros resultados</p>
-            </div>
-
-            <div className="home-gallery-preview">
-              {galleryPreview.map((item, index) => (
-                <figure key={item.id} className={`home-gallery-item home-gallery-item-${index + 1}`}>
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = heroImage; }}
-                  />
-                  <figcaption>
-                    <span>{index === 0 ? 'Destacado' : 'Resultado'}</span>
-                    <strong>{item.title}</strong>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <div className="text-center mt-8">
-              <Link to="/galeria" className="btn btn-primary">{"Ver galer\u00eda completa"}</Link>
-            </div>
-          </div>
-        </section>
-
-        <section id="opiniones" className="py-16">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Lo que dicen nuestras clientas</h2>
-              <p className="section-subtitle">{"Experiencias reales de personas como t\u00fa"}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3">
-              {recentReviews.map((review) => (
-                <CardReview key={review.id} testimonial={review} />
-              ))}
-            </div>
+            <PolicyPreview />
           </div>
         </section>
 
