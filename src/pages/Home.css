@@ -1055,14 +1055,14 @@
 .home-brand-values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 1180px);
-  margin: var(--space-2) auto 0;
+  width: min(100%, 1280px);
+  margin: var(--space-4) auto 0;
   gap: 0;
   overflow: hidden;
-  padding: var(--space-6) clamp(var(--space-2), 3vw, var(--space-6));
+  padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-4), 4vw, var(--space-10));
   border-block: 1px solid rgba(255, 255, 255, 0.34);
   background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
   box-shadow: none;
 }
 
@@ -1073,7 +1073,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--space-8) clamp(var(--space-5), 3vw, var(--space-9)) var(--space-7);
+  padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-6), 4vw, var(--space-12));
   text-align: center;
   transition: transform var(--speed) var(--easing), background var(--speed) var(--easing);
 }
@@ -1096,9 +1096,9 @@
 
 .home-brand-value-icon {
   display: grid;
-  width: 64px;
-  height: 64px;
-  margin-bottom: var(--space-6);
+  width: clamp(82px, 6vw, 104px);
+  height: clamp(82px, 6vw, 104px);
+  margin-bottom: var(--space-7);
   place-items: center;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.48);
@@ -1106,6 +1106,11 @@
   color: #fff;
   box-shadow: 0 12px 28px rgba(199, 27, 91, 0.16);
   transition: transform var(--speed) var(--easing), color var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
+}
+
+.home-brand-value-icon svg {
+  width: clamp(38px, 3vw, 52px);
+  height: clamp(38px, 3vw, 52px);
 }
 
 .home-brand-value:hover .home-brand-value-icon {
@@ -1116,21 +1121,21 @@
 }
 
 .home-brand-value h3 {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-5);
   color: #fff;
   font-family: var(--ff-body);
-  font-size: var(--fs-sm);
+  font-size: clamp(var(--fs-base), 1.2vw, var(--fs-lg));
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .home-brand-value p {
-  max-width: 330px;
+  max-width: 360px;
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: clamp(var(--fs-base), 1.05vw, var(--fs-lg));
+  line-height: 1.85;
 }
 
 .home-brand-values-action {
@@ -1178,8 +1183,8 @@
   }
 
   .home-brand-value-icon {
-    width: 66px;
-    height: 66px;
+    width: 84px;
+    height: 84px;
   }
 
   .home-brand-value + .home-brand-value::before {
