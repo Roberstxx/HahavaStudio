@@ -747,6 +747,13 @@
     linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
 }
 
+.page-wrapper main #opiniones.py-16 {
+  background:
+    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
+}
+
 #opiniones::after {
   content: "";
   position: absolute;
@@ -940,8 +947,7 @@
 
 #experiencia-amenidades,
 #filosofia-conocenos,
-#contacto,
-#opiniones
+#contacto
  { background: var(--clr-bg-warm) !important; }
 
 #galeria.py-16 {
