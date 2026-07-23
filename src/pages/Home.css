@@ -1072,27 +1072,52 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-6), 4vw, var(--space-10));
-  border: 1px solid rgba(255, 255, 255, 0.52);
+  padding: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-6), 4vw, var(--space-10)) clamp(var(--space-8), 4vw, var(--space-11));
+  border: 1px solid rgba(255, 255, 255, 0.58);
   border-radius: clamp(18px, 2vw, 28px);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 24px 58px rgba(199, 27, 91, 0.18);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 193, 213, 0.42), transparent 34%),
+    rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 58px rgba(199, 27, 91, 0.2);
   text-align: center;
   transition: transform var(--speed) var(--easing), background var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
 .home-brand-value::after {
-  display: none;
+  content: "";
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-5);
+  bottom: var(--space-5);
+  width: 4px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, #f74780, #ffc1d5);
+}
+
+.home-brand-value::before {
+  content: "01";
+  position: absolute;
+  right: var(--space-6);
+  top: var(--space-5);
+  color: rgba(247, 71, 128, 0.11);
+  font-family: var(--ff-heading);
+  font-size: clamp(3.4rem, 5vw, 5.8rem);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+.home-brand-value:nth-child(2)::before {
+  content: "02";
+}
+
+.home-brand-value:nth-child(3)::before {
+  content: "03";
 }
 
 .home-brand-value:hover {
   transform: translateY(-6px);
   background: #fff;
   box-shadow: 0 30px 72px rgba(199, 27, 91, 0.26);
-}
-
-.home-brand-value + .home-brand-value::before {
-  display: none;
 }
 
 .home-brand-value-icon {
@@ -1105,7 +1130,7 @@
   border: 1px solid rgba(247, 71, 128, 0.18);
   background: linear-gradient(145deg, #fff, #ffe4ec);
   color: #f74780;
-  box-shadow: 0 18px 36px rgba(199, 27, 91, 0.18);
+  box-shadow: 0 18px 36px rgba(199, 27, 91, 0.18), 0 0 0 10px rgba(247, 71, 128, 0.05);
   transition: transform var(--speed) var(--easing), color var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
@@ -1195,10 +1220,6 @@
   .home-brand-value-icon {
     width: 84px;
     height: 84px;
-  }
-
-  .home-brand-value + .home-brand-value::before {
-    display: none;
   }
 
   .home-brand-values-action {
