@@ -12,6 +12,9 @@
   --clr-surface: #FFFFFF;
   --clr-accent: #F5E3C3;
   --clr-accent-soft: #FFF1D8;
+  /* Strong pinks from client palette (used subtly in some sections) */
+  --clr-strong-pink: #c71b5b;
+  --clr-strong-pink-2: #e0457c;
   
   /* Neutrals */
   --clr-gray-50: #FAFAFA;
