@@ -1101,10 +1101,10 @@
   margin-bottom: var(--space-7);
   place-items: center;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(199, 27, 91, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  background: #fff;
+  color: #f74780;
+  box-shadow: 0 18px 36px rgba(199, 27, 91, 0.2);
   transition: transform var(--speed) var(--easing), color var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
@@ -1114,10 +1114,10 @@
 }
 
 .home-brand-value:hover .home-brand-value-icon {
-  color: #fff;
+  color: #c71b5b;
   transform: translateY(-3px) scale(1.04);
-  background: rgba(255, 255, 255, 0.26);
-  box-shadow: 0 16px 32px rgba(199, 27, 91, 0.22);
+  background: #fff;
+  box-shadow: 0 22px 44px rgba(199, 27, 91, 0.28);
 }
 
 .home-brand-value h3 {
