@@ -6,9 +6,8 @@ import { setDocumentMeta } from '../utils/seo';
 import useScrollToTop from '../hooks/useScrollToTop';
 import './Contact.css';
 
-const EMAIL_TO = 'Correoooo'; // cámbialo por tu correo real
+const EMAIL_TO = 'Correoooo'; // Cámbialo por tu correo real
 
-// === Iconos SVG (como los del footer) ===
 const IconIG = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <defs>
@@ -47,8 +46,8 @@ const Contact = () => {
 
   useEffect(() => {
     setDocumentMeta({
-      title: 'Contacto | Ahavah Beauty Studio',
-      description: 'Redes sociales, horarios por día y ubicación para visitarnos.'
+      title: 'Contacto y Reservas | Ahavah Beauty Studio',
+      description: 'Agenda tu cita en Ahavah Beauty Studio, ubicado en C. 10, Barrio de San Román, San Francisco de Campeche. Consulta horarios, redes y ubicación.'
     });
   }, []);
 
@@ -61,21 +60,21 @@ const Contact = () => {
 
   const serviceOptions = [
     'Uñas acrílicas',
-    'Uñas gelish',
+    'Gel semipermanente',
     'Manicure / Pedicure',
     'Maquillaje social',
     'Peinado',
-    'Cejas / Pestañas',
+    'Cejas',
     'Otro'
   ];
 
   const schedule = [
-    { day: 'Lunes', time: '11:00 am – 6:00 pm' },
-    { day: 'Martes', time: '10:00 am – 5:00 pm' },
-    { day: 'Miércoles', time: '11:00 am – 6:00 pm' },
-    { day: 'Jueves', time: '11:00 am – 6:00 pm' },
-    { day: 'Viernes', time: '10:00 am – 5:00 pm' },
-    { day: 'Sábado', time: '11:00 am – 6:00 pm' },
+    { day: 'Lunes', time: '11:00 am - 6:00 pm' },
+    { day: 'Martes', time: '10:00 am - 5:00 pm' },
+    { day: 'Miércoles', time: '11:00 am - 6:00 pm' },
+    { day: 'Jueves', time: '11:00 am - 6:00 pm' },
+    { day: 'Viernes', time: '10:00 am - 5:00 pm' },
+    { day: 'Sábado', time: '11:00 am - 6:00 pm' },
     { day: 'Domingo', time: 'Cerrado' },
   ];
 
@@ -86,7 +85,7 @@ const Contact = () => {
     const servicio = form.get('servicio');
     const telefono = form.get('telefono');
     const mensaje = form.get('mensaje');
-    const subject = encodeURIComponent(`Consulta — ${servicio}`);
+    const subject = encodeURIComponent(`Consulta - ${servicio}`);
     const body = encodeURIComponent(
       `Nombre: ${nombre}\nTeléfono: ${telefono}\nServicio: ${servicio}\n\nMensaje:\n${mensaje}`
     );
@@ -103,10 +102,9 @@ const Contact = () => {
         <div className="container py-12">
           <header className="page-header animate-fade-in">
             <h1 className="page-title">Contacto / Reserva</h1>
-            <p className="page-subtitle">Síguenos en redes, revisa horarios y visítanos.</p>
+            <p className="page-subtitle">Agenda por WhatsApp, revisa horarios y encuentra cómo llegar al estudio.</p>
           </header>
 
-          {/* Redes sociales (mismos íconos que footer) */}
           <section className="social-links">
             {socialLinks.map(({ label, href, Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-btn" aria-label={label}>
@@ -116,7 +114,6 @@ const Contact = () => {
           </section>
 
           <div className="contact-grid">
-            {/* Horarios con formato destacado */}
             <section className="contact-card">
               <h2>Horarios de atención</h2>
               <dl className="schedule">
@@ -129,7 +126,6 @@ const Contact = () => {
               </dl>
             </section>
 
-            {/* Mapa + dirección debajo (versión final con ubicación exacta de Ahavah) */}
             <section className="contact-card">
               <h2>Cómo llegar</h2>
               <div className="contact-map">
@@ -142,13 +138,11 @@ const Contact = () => {
                 ></iframe>
               </div>
               <p className="map-address">
-                <span className="pin" aria-hidden="true">📍</span>
-                <span className="address-text">Ahavah Beauty Studio, C. 10 477, entre victoria y abasolo, Barrio de San Román, 24040 San Francisco de Campeche, Camp.</span>
+                <span className="pin" aria-hidden="true">•</span>
+                <span className="address-text">Ahavah Beauty Studio, C. 10 477, entre Victoria y Abasolo, Barrio de San Román, 24040 San Francisco de Campeche, Camp.</span>
               </p>
             </section>
 
-
-            {/* Form correo (nombre, servicio, teléfono, mensaje) */}
             <section className="contact-card">
               <h2>Escríbenos</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -166,19 +160,18 @@ const Contact = () => {
                 <input id="telefono" name="telefono" type="tel" placeholder="Ej. +52 981 206 1662" required />
 
                 <label htmlFor="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows={4} placeholder="Cuéntanos qué necesitas"></textarea>
+                <textarea id="mensaje" name="mensaje" rows={4} placeholder="Cuéntanos qué servicio necesitas o qué fecha prefieres"></textarea>
 
                 <button type="submit" className="btn btn-primary">Enviar mensaje</button>
               </form>
             </section>
           </div>
 
-          {/* Recordatorios (con más aire) */}
           <section className="contact-card contact-notes">
             <ul>
-              <li>💅 Todas las reservas se confirman con anticipo del 30%.</li>
-              <li>🕒 Tolerancia de 15 minutos por cita.</li>
-              <li>💗 Si presentas síntomas o lesiones, reagenda tu visita por seguridad.</li>
+              <li>Todas las reservas se confirman con anticipo del 30%.</li>
+              <li>Contamos con 15 minutos de tolerancia por cita.</li>
+              <li>Si presentas síntomas o lesiones, reagenda tu visita por seguridad.</li>
             </ul>
           </section>
         </div>

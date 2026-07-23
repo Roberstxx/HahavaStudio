@@ -19,7 +19,7 @@ const Gallery = () => {
     setDocumentMeta({
       title: 'Galería de Resultados | Ahavah Beauty Studio',
       description:
-        'Mira nuestros trabajos: transformaciones antes/después, diseños de uñas, maquillajes y peinados profesionales.'
+        'Inspírate con resultados reales de Ahavah: uñas, maquillaje, peinados y transformaciones cuidadas con detalle.'
     });
   }, []);
 
@@ -112,7 +112,7 @@ const Gallery = () => {
               <h1>Galería de resultados</h1>
               <p>
                 Una selección de trabajos reales para inspirarte antes de tu cita:
-                uñas, maquillaje, peinados y transformaciones pensadas con detalle.
+                uñas, maquillaje, peinados y transformaciones con acabado profesional.
               </p>
               <div className="gallery-hero-stats" aria-label="Resumen de galería">
                 <span><strong>{portfolioItems.length}</strong> trabajos</span>
@@ -127,7 +127,7 @@ const Gallery = () => {
                   {renderMedia(featuredItem)}
                 </div>
                 <div className="gallery-featured-info">
-                  <span>Resultado destacado</span>
+                <span>Trabajo destacado</span>
                   <h2>{featuredItem.title}</h2>
                   <p>{featuredItem.description}</p>
                 </div>
@@ -189,7 +189,7 @@ const Gallery = () => {
             {filteredPortfolio.length === 0 && (
               <div className="empty-state">
                 <p className="empty-state-text">
-                  No hay trabajos en esta categoría aún.
+                  Aún no hay trabajos disponibles en esta categoría.
                 </p>
               </div>
             )}

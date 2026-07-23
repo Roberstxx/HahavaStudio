@@ -109,7 +109,7 @@
 }
 
 .services-banner-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--ff-heading);
   font-size: var(--fs-2xl);
   margin-bottom: var(--space-4);
   color: var(--clr-text);

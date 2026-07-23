@@ -7,20 +7,20 @@ import useScrollToTop from '../hooks/useScrollToTop';
 import './Experience.css';
 
 const amenities = [
-  { icon: '📶', title: 'Wifi ilimitado', description: 'Conexión estable para trabajar o compartir tu experiencia.' },
-  { icon: '❄️', title: 'Aire acondicionado', description: 'Clima agradable todo el año para tu comodidad.' },
-  { icon: '📺', title: 'TV con streaming', description: 'Netflix, Spotify y playlists personalizadas.' },
-  { icon: '🍰', title: 'Snacks y bebidas', description: 'Delicias artesanales y bebidas preparadas al momento.' },
-  { icon: '🅿️', title: 'Estacionamiento', description: 'Espacio reservado para clientas con cita confirmada.' },
-  { icon: '🎶', title: 'Música ambiental', description: 'Curaduría sonora pensada para relajarte.' },
-  { icon: '🧼', title: 'Higiene visible', description: 'Protocolos abiertos y herramientas selladas por cliente.' },
-  { icon: '🪟', title: 'Privacidad', description: 'Cabinas semi privadas y atención personalizada.' },
-  { icon: '🔌', title: 'Cargadores', description: 'Conexiones USB-C, Lightning y adaptadores disponibles.' },
-  { icon: '💳', title: 'Pago en línea', description: 'Links de pago y terminal contactless.' }
+  { icon: '•', title: 'Wifi ilimitado', description: 'Conexión estable para trabajar, esperar o compartir tu experiencia.' },
+  { icon: '•', title: 'Aire acondicionado', description: 'Clima agradable durante todo el año para tu comodidad.' },
+  { icon: '•', title: 'TV con streaming', description: 'Entretenimiento y playlists para acompañar tu cita.' },
+  { icon: '•', title: 'Snacks y bebidas', description: 'Detalles de cortesía para que tu visita se sienta más cómoda.' },
+  { icon: '•', title: 'Estacionamiento', description: 'Espacio disponible para clientas con cita confirmada.' },
+  { icon: '•', title: 'Música ambiental', description: 'Selección sonora pensada para un ambiente tranquilo.' },
+  { icon: '•', title: 'Higiene visible', description: 'Protocolos claros y herramientas preparadas por cliente.' },
+  { icon: '•', title: 'Privacidad', description: 'Atención personalizada en un entorno cómodo y reservado.' },
+  { icon: '•', title: 'Cargadores', description: 'Conexiones disponibles para que no tengas que preocuparte.' },
+  { icon: '•', title: 'Pago en línea', description: 'Opciones de pago prácticas según disponibilidad.' }
 ];
 
 const premiumFeatures = [
-  'Champán o vino de cortesía',
+  'Bebida de cortesía',
   'Kit exclusivo de retoque',
   'Asistencia personalizada',
   'Fotógrafo profesional opcional',
@@ -32,13 +32,12 @@ const Experience = () => {
   const gridRef = useRef(null);
 
   useEffect(() => {
-    setDocumentMeta({ 
+    setDocumentMeta({
       title: 'Experiencia & Amenidades | Ahavah Beauty Studio',
-      description: 'Descubre todas las amenidades y servicios premium que ofrecemos para hacer tu experiencia de belleza inolvidable.'
+      description: 'Descubre las amenidades y detalles que preparamos para que tu cita en Ahavah sea cómoda, segura y especial.'
     });
   }, []);
 
-  // Contador dinámico para el grid
   const amenityCount = amenities.length;
 
   return (
@@ -51,20 +50,20 @@ const Experience = () => {
           <header className="page-header">
             <h1 className="page-title">Experiencia & Amenidades</h1>
             <p className="page-subtitle">
-              Cada visita está pensada para consentirte con detalles premium y un ambiente seguro.
-              Descubre todo lo que tenemos preparado para ti.
+              Cada visita está pensada para que te sientas tranquila, acompañada
+              y cuidada desde que llegas hasta que termina tu servicio.
             </p>
           </header>
 
-          <section 
-            className="amenities-grid" 
+          <section
+            className="amenities-grid"
             ref={gridRef}
-            data-count={`${amenityCount} amenities`}
+            data-count={`${amenityCount} amenidades`}
             aria-label="Amenidades disponibles"
           >
             {amenities.map((item, index) => (
-              <article 
-                key={item.title} 
+              <article
+                key={item.title}
                 className="amenity-tile"
                 style={{ animationDelay: `${0.05 * (index + 1)}s` }}
               >
@@ -80,16 +79,16 @@ const Experience = () => {
               <span className="premium-badge">✦ Premium</span>
               <h2>Para novias y eventos especiales</h2>
               <p>
-                Queremos que tu día especial sea perfecto. Por eso, incluimos servicios exclusivos
-                para que vivas una experiencia inolvidable llena de detalles y cuidado personalizado.
+                Para bodas, XV años y eventos importantes, diseñamos una experiencia
+                más pausada, organizada y cuidada para que disfrutes el proceso sin estrés.
               </p>
-              
+
               <div className="premium-features">
                 {premiumFeatures.map((feature, index) => (
                   <span key={index}>{feature}</span>
                 ))}
               </div>
-              
+
               <p style={{ marginTop: 'var(--space-4)', fontSize: 'var(--fs-sm)', color: 'var(--clr-gray-500)' }}>
                 * Aplican términos y condiciones. Consulta disponibilidad al agendar tu cita.
               </p>

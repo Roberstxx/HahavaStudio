@@ -55,46 +55,36 @@
   z-index: 2;
   display: grid;
   justify-items: center;
-  gap: clamp(var(--space-5), 2.4vw, var(--space-8));
+  gap: clamp(var(--space-3), 1.8vw, var(--space-6));
   padding: 0 var(--container-padding);
   text-align: center;
 }
 
 .about-cover-poster__text h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(var(--space-4), 3vw, var(--space-10));
-  width: 100%;
+  width: min(100%, 980px);
   margin: 0;
   color: #f7efdf;
-  font-family: var(--ff-body);
-  font-size: clamp(4.4rem, 11vw, 11.5rem);
-  font-weight: 800;
-  line-height: 0.82;
-  letter-spacing: 0.02em;
+  font-family: var(--ff-heading);
+  font-size: clamp(4.4rem, 10vw, 10.25rem);
+  font-weight: var(--fw-semibold);
+  line-height: 0.88;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  text-shadow: 0 14px 34px rgba(128, 30, 83, 0.22);
-}
-
-.about-cover-poster__text h1 span:nth-child(2) {
-  display: inline-block;
-  transform: scaleX(1.08);
-}
-
-.about-cover-poster__text h1 span:first-child,
-.about-cover-poster__text h1 span:last-child {
-  font-size: 0.9em;
-  line-height: 1;
+  text-wrap: balance;
+  text-shadow:
+    0 3px 0 rgba(183, 75, 113, 0.42),
+    0 18px 38px rgba(128, 30, 83, 0.2);
 }
 
 .about-cover-poster__text p {
   margin: 0;
   color: rgba(255, 247, 235, 0.88);
-  font-size: clamp(var(--fs-lg), 2.4vw, var(--fs-4xl));
-  font-weight: var(--fw-normal);
-  letter-spacing: clamp(0.45em, 1.5vw, 0.78em);
+  font-family: var(--ff-body);
+  font-size: clamp(var(--fs-sm), 1.6vw, var(--fs-xl));
+  font-weight: var(--fw-semibold);
+  letter-spacing: clamp(0.22em, 0.8vw, 0.38em);
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .about-brand-hero {
@@ -158,6 +148,7 @@
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.82);
   color: var(--about-pink);
+  font-family: var(--ff-body);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.02em;
@@ -170,6 +161,8 @@
   max-width: 760px;
   margin: 0 0 var(--space-5);
   color: var(--about-ink);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
   font-size: clamp(2.6rem, 7vw, var(--fs-6xl));
   line-height: 1.03;
   text-wrap: balance;
@@ -177,6 +170,7 @@
 
 .about-brand-copy p {
   max-width: 720px;
+  font-family: var(--ff-body);
   font-size: var(--fs-lg);
   color: var(--clr-gray-700);
   line-height: 1.85;
@@ -296,6 +290,8 @@
 .about-contact-strip h2 {
   max-width: 12ch;
   color: var(--about-ink);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
   font-size: clamp(2rem, 4vw, var(--fs-4xl));
   margin: 0;
   line-height: 1.12;
@@ -306,6 +302,7 @@
   display: grid;
   gap: var(--space-4);
   max-width: 780px;
+  font-family: var(--ff-body);
   font-size: var(--fs-lg);
   line-height: 1.85;
   color: var(--clr-gray-700);
@@ -492,6 +489,8 @@
 .about-mission-grid h2 {
   max-width: 15ch;
   color: var(--about-ink);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
   font-size: clamp(2.1rem, 3.4vw, var(--fs-5xl));
   margin-bottom: var(--space-5);
   line-height: 1.02;
@@ -500,6 +499,7 @@
 
 .about-mission-grid p {
   max-width: 610px;
+  font-family: var(--ff-body);
   font-size: clamp(var(--fs-base), 1.08vw, var(--fs-lg));
 }
 
@@ -736,6 +736,8 @@
   max-width: 10ch;
   margin: 0 0 var(--space-5);
   color: #fff7eb !important;
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
   font-size: clamp(2.7rem, 5.4vw, var(--fs-6xl));
   line-height: 0.98;
   text-wrap: balance;
@@ -745,6 +747,7 @@
   max-width: 560px;
   margin: 0;
   color: rgba(255, 247, 235, 0.94) !important;
+  font-family: var(--ff-body);
   font-size: clamp(var(--fs-base), 1.2vw, var(--fs-lg));
   line-height: 1.85;
 }
@@ -779,6 +782,7 @@
   margin: 0;
   color: #fff7eb !important;
   font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
   font-size: clamp(1.7rem, 2.4vw, var(--fs-3xl));
   line-height: 1.05;
 }
@@ -786,6 +790,7 @@
 .about-promise-pillars p {
   margin: 0;
   color: rgba(255, 247, 235, 0.9) !important;
+  font-family: var(--ff-body);
   font-size: clamp(var(--fs-sm), 1vw, var(--fs-base));
   line-height: 1.7;
 }
@@ -878,18 +883,18 @@
 .about-value-card h3 {
   margin: 0 0 var(--space-2);
   color: #9c7650;
-  font-family: var(--ff-body);
-  font-size: clamp(var(--fs-sm), 1vw, var(--fs-base));
+  font-family: var(--ff-heading);
+  font-size: clamp(1.6rem, 2vw, var(--fs-3xl));
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.08;
 }
 
 .about-value-card p {
   max-width: 210px;
   margin: 0;
   color: var(--clr-gray-700);
+  font-family: var(--ff-body);
   font-size: clamp(var(--fs-xs), 0.88vw, var(--fs-sm));
   line-height: 1.62;
 }
@@ -962,8 +967,8 @@
 .about-value-card h3 {
   margin-bottom: var(--space-3);
   color: var(--about-pink-dark);
-  font-size: clamp(var(--fs-base), 1vw, var(--fs-lg));
-  letter-spacing: 0.1em;
+  font-size: clamp(1.7rem, 2.15vw, var(--fs-3xl));
+  letter-spacing: 0.02em;
 }
 
 .about-value-card p {
@@ -999,6 +1004,7 @@
   max-width: 620px;
   margin-top: var(--space-4);
   color: rgba(255, 255, 255, 0.9);
+  font-family: var(--ff-body);
 }
 
 .about-difference ul {
@@ -1029,6 +1035,7 @@
   padding: var(--space-4) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.28);
   color: rgba(255, 255, 255, 0.93);
+  font-family: var(--ff-body);
   font-size: clamp(var(--fs-base), 1vw, var(--fs-lg));
   line-height: 1.65;
 }
@@ -1562,20 +1569,14 @@
   }
 
   .about-cover-poster__text h1 {
-    flex-wrap: wrap;
-    row-gap: var(--space-2);
-    font-size: clamp(3.2rem, 15vw, 6.2rem);
-    line-height: 0.86;
-  }
-
-  .about-cover-poster__text h1 span:nth-child(2) {
-    flex-basis: 100%;
-    order: -1;
+    width: min(100%, 720px);
+    font-size: clamp(3.6rem, 14vw, 6.4rem);
+    line-height: 0.9;
   }
 
   .about-cover-poster__text p {
     font-size: clamp(var(--fs-sm), 4vw, var(--fs-xl));
-    letter-spacing: 0.42em;
+    letter-spacing: 0.28em;
   }
 
   .about-brand-question {
@@ -1703,22 +1704,15 @@
   }
 
   .about-cover-poster__text h1 {
-    flex-wrap: nowrap;
-    gap: var(--space-3);
-    font-size: clamp(2.15rem, 10vw, 3.2rem);
-    line-height: 0.9;
-  }
-
-  .about-cover-poster__text h1 span:nth-child(2) {
-    flex-basis: auto;
-    order: 0;
-    transform: none;
+    width: min(100%, 420px);
+    font-size: clamp(2.85rem, 13vw, 4.3rem);
+    line-height: 0.92;
   }
 
   .about-cover-poster__text p {
     max-width: 100%;
     font-size: var(--fs-sm);
-    letter-spacing: 0.32em;
+    letter-spacing: 0.22em;
   }
 
   .about-brand-question {

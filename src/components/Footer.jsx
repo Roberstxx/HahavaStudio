@@ -9,14 +9,14 @@ export default function Footer() {
         <div className="footer-brand">
           <h3 className="footer-title">Ahavah Beauty Studio</h3>
           <p className="footer-text">
-            Estudio profesional dedicado a realzar tu confianza con servicios de
-            calidad premium y protocolos de bioseguridad.
+            Estudio de belleza en Campeche dedicado a realzar tu confianza con
+            técnica profesional, atención cálida y bioseguridad visible.
           </p>
         </div>
 
         {/* Col 2: Enlaces */}
         <nav className="footer-links" aria-label="Enlaces rápidos">
-          <h4 className="footer-subtitle">Enlaces Rápidos</h4>
+          <h4 className="footer-subtitle">Enlaces rápidos</h4>
           <ul>
             <li><Link to="/servicios">Servicios</Link></li>
             <li><Link to="/experiencia">Experiencia</Link></li>
@@ -31,14 +31,14 @@ export default function Footer() {
           <h4 className="footer-subtitle">Contacto</h4>
           <ul>
             <li><strong>Teléfono:</strong> <a href="tel:+5219812061662">+52 1 981 206 1662</a></li>
-            <li><strong>Horario:</strong> Lun–Vie 10:00–20:00 · Sáb 09:00–18:00</li>
+            <li><strong>Horario:</strong> Lun-Vie 10:00-18:00 · Sáb 11:00-18:00</li>
             <li>
               <strong>Dirección:</strong>{' '}
               <a
-                href="https://maps.google.com/?q=Av.+Ejemplo+123,+Col.+Centro,+CDMX"
+                href="https://maps.google.com/?q=Ahavah+Beauty+Studio+C.+10+477+San+Francisco+de+Campeche"
                 target="_blank" rel="noopener noreferrer"
               >
-                Av. Ejemplo 123, Col. Centro, CDMX
+                C. 10 477, Barrio de San Román, Campeche
               </a>
             </li>
           </ul>

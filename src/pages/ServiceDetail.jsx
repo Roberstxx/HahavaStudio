@@ -18,7 +18,7 @@ const ServiceDetail = () => {
   useEffect(() => {
     if (service) {
       setDocumentMeta({
-        title: `${service.name} | Estudio de Belleza Elegante`,
+        title: `${service.name} | Ahavah Beauty Studio`,
         description: service.fullDescription,
       });
     }
@@ -48,7 +48,7 @@ const ServiceDetail = () => {
 
       <main className="container py-8">
         <Link to="/servicios" className="btn btn-outline mb-6">
-          ← Volver a servicios
+          Volver a servicios
         </Link>
 
         <div className="grid md:grid-cols-2 gap-8">

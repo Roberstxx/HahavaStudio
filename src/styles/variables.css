@@ -36,8 +36,9 @@
   --clr-info: #3B82F6;
   
   /* Typography */
-  --ff-heading: "Playfair Display", Georgia, serif;
-  --ff-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --ff-heading: "Cormorant Garamond", Georgia, serif;
+  --ff-body: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --ff-accent: "Allura", cursive;
   
   --fs-xs: 0.75rem;      /* 12px */
   --fs-sm: 0.875rem;     /* 14px */

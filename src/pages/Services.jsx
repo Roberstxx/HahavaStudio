@@ -28,7 +28,7 @@ const Services = () => {
     setDocumentMeta({
       title: 'Servicios de Belleza | Ahavah Beauty Studio',
       description:
-        'Catálogo completo de servicios: uñas acrílicas, maquillaje profesional, peinados elegantes, cortes y más. Todos con cita previa y anticipo.'
+        'Servicios de belleza en San Román, Campeche: uñas, manicure, pedicure, cejas, maquillaje y cabello con cita previa, valoración profesional y bioseguridad.'
     });
   }, []);
 
@@ -54,10 +54,10 @@ const Services = () => {
             <div className="services-hero">
               <div className="services-hero-copy">
                 <span className="services-eyebrow">Catálogo Ahavah</span>
-                <h1 className="services-hero-title">Servicios para verte impecable sin perder la calma</h1>
+                <h1 className="services-hero-title">Servicios para verte impecable y sentirte cuidada</h1>
                 <p className="services-hero-text">
                   Explora uñas, manicure, pedicure, nail art, cejas, maquillaje y cabello.
-                  Cada servicio se agenda con valoración profesional, anticipo y protocolos visibles.
+                  Cada servicio incluye valoración profesional, agenda con anticipo y protocolos visibles.
                 </p>
                 <div className="services-hero-actions">
                   <a href="#catalogo-servicios" className="btn btn-primary">Explorar catálogo</a>

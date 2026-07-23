@@ -342,7 +342,7 @@
 
 .premium-highlight h2 {
   font-size: clamp(2rem, 4vw, var(--fs-4xl));
-  font-family: 'Playfair Display', serif;
+  font-family: var(--ff-heading);
   margin: 0;
   line-height: 1.2;
   background: linear-gradient(135deg, var(--clr-text) 0%, var(--clr-primary) 100%);

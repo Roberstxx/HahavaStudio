@@ -48,17 +48,17 @@ const serviceCategories = [
 const brandValues = [
   {
     title: 'Filosof\u00eda',
-    text: 'Unimos amor propio, bioseguridad y detalle para que cada cita se sienta cuidada desde el inicio.',
+    text: 'Unimos amor propio, bioseguridad y detalle para que cada cita se sienta cuidada desde el primer mensaje.',
     Icon: Sparkles
   },
   {
     title: 'Excelencia',
-    text: 'Buscamos calidad real en la t\u00e9cnica, los productos y cada peque\u00f1o detalle.',
+    text: 'Trabajamos con técnica, productos profesionales y acabados pensados para durar.',
     Icon: Crown
   },
   {
     title: 'Servicio',
-    text: 'Te acompa\u00f1amos con atenci\u00f3n personalizada antes, durante y despu\u00e9s.',
+    text: 'Te escuchamos y te guiamos con recomendaciones honestas antes, durante y después.',
     Icon: HandHeart
   }
 ];
@@ -68,9 +68,9 @@ const Home = () => {
 
   useEffect(() => {
     setDocumentMeta({
-      title: 'Ahavah Beauty Studio | Amarse es Belleza',
+      title: 'Ahavah Beauty Studio | Belleza en San Román, Campeche',
       description:
-        'En Ahavah te consentimos con servicios seguros, personalizados y llenos de amor. Agenda por WhatsApp y vive una experiencia profesional con bioseguridad.',
+        'Estudio de belleza en San Román, Campeche: uñas, cejas, maquillaje y cabello con atención cálida, técnica profesional y bioseguridad visible.',
       ogImage: heroImage
     });
     injectJsonLd(generateBeautySalonJsonLd());
@@ -140,7 +140,7 @@ const Home = () => {
                 <small>Beauty Studio</small>
               </h1>
               <p className="hero-subtitle">
-                {"M\u00e1s que belleza exterior, creamos experiencias que realzan tu esencia y te hacen sentir segura, valiosa y \u00fanica."}
+                {"Más que un servicio de belleza, creamos un momento para que te sientas cuidada, segura y fiel a ti."}
               </p>
 
               <div className="hero-ctas">
@@ -178,7 +178,7 @@ const Home = () => {
           <div className="container">
             <div className="section-header services-preview-header">
               <h2 className="section-title">{"Nuestros servicios"}</h2>
-              <p className="section-subtitle">{"Una vista suave de lo que puedes vivir en Ahavah."}</p>
+              <p className="section-subtitle">{"Cuidado profesional para tus manos, rostro, cabello y momentos especiales."}</p>
             </div>
 
             <div className="home-services-preview">
@@ -210,7 +210,7 @@ const Home = () => {
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">{"Galer\u00eda"}</h2>
-              <p className="section-subtitle">Un vistazo a nuestros resultados</p>
+              <p className="section-subtitle">Resultados reales, limpios y pensados para inspirar tu próxima cita.</p>
             </div>
 
             <div className="home-gallery-preview">
@@ -241,7 +241,7 @@ const Home = () => {
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Lo que dicen nuestros clientes</h2>
-              <p className="section-subtitle">{"Experiencias reales de personas como t\u00fa"}</p>
+              <p className="section-subtitle">{"Opiniones de clientas que confiaron su cuidado a Ahavah."}</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3">
@@ -267,24 +267,24 @@ const Home = () => {
                 <span className="home-experience-kicker">Experiencia Ahavah</span>
                 <h2 className="section-title">Tu momento, sin prisas</h2>
                 <p className="section-subtitle">
-                  {"Un ambiente limpio, c\u00f3modo y preparado para que disfrutes cada servicio desde que llegas hasta que sales lista."}
+                  {"Un ambiente limpio, cómodo y preparado para que disfrutes cada servicio desde que llegas hasta que sales lista."}
                 </p>
 
                 <div className="home-experience-steps" aria-label="Momentos de la experiencia Ahavah">
                   <article>
                     <span>01</span>
                     <h3>{"Te recibimos"}</h3>
-                    <p>{"Evaluamos tu estilo y lo que quieres lograr antes de iniciar."}</p>
+                    <p>{"Escuchamos tu idea, revisamos tus necesidades y definimos juntas el mejor camino."}</p>
                   </article>
                   <article>
                     <span>02</span>
                     <h3>{"Cuidamos cada detalle"}</h3>
-                    <p>{"Usamos materiales preparados, productos profesionales e higiene visible."}</p>
+                    <p>{"Usamos materiales preparados, productos profesionales y protocolos visibles."}</p>
                   </article>
                   <article>
                     <span>03</span>
                     <h3>{"Sales tranquila"}</h3>
-                    <p>{"Te damos recomendaciones para mantener tu resultado por m\u00e1s tiempo."}</p>
+                    <p>{"Te compartimos recomendaciones para mantener tu resultado por más tiempo."}</p>
                   </article>
                 </div>
 
@@ -306,7 +306,7 @@ const Home = () => {
             <div className="section-header">
               <h2 className="section-title">{"Con\u00f3cenos"}</h2>
               <p className="section-subtitle">
-                {"Nuestra filosof\u00eda une amor propio, bioseguridad, detalle y servicio profesional."}
+                {"Nuestra filosofía une amor propio, bioseguridad, detalle y servicio profesional."}
               </p>
             </div>
 
@@ -338,7 +338,7 @@ const Home = () => {
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Preguntas frecuentes</h2>
-              <p className="section-subtitle">{"Resolvemos tus dudas m\u00e1s comunes"}</p>
+              <p className="section-subtitle">{"Resolvemos tus dudas más comunes antes de agendar."}</p>
             </div>
 
             <div className="grid md:grid-cols-3">
@@ -367,7 +367,7 @@ const Home = () => {
             <div className="section-header">
               <h2 className="section-title">Contacto / Reserva</h2>
               <p className="section-subtitle">
-                {"Agenda por WhatsApp o escr\u00edbenos. Aqu\u00ed encuentras nuestras redes y c\u00f3mo llegar."}
+                {"Agenda por WhatsApp o escríbenos. Aquí encuentras nuestras redes, horarios y ubicación."}
               </p>
             </div>
 

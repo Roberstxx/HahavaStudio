@@ -4,7 +4,7 @@
  */
 
 // Store phone number (without + or spaces, with country code)
-const WHATSAPP_NUMBER = '5215512345678'; // Replace with actual number
+const WHATSAPP_NUMBER = '529812061662';
 
 /**
  * Build WhatsApp URL with pre-filled message
@@ -70,6 +70,5 @@ export const openWhatsApp = (params) => {
  * Get formatted phone number for display
  */
 export const getFormattedPhone = () => {
-  // Format: +52 1 55 1234 5678
-  return '+52 1 55 1234 5678';
+  return '+52 981 206 1662';
 };

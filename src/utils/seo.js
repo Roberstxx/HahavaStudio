@@ -6,9 +6,9 @@
  * Set document metadata (title, description, OG tags)
  */
 export const setDocumentMeta = ({
-  title = 'Estudio de Belleza Elegante',
-  description = 'Belleza segura, personalizada y con experiencia premium.',
-  ogImage = 'https://lovable.dev/opengraph-image-p98pqg.png',
+  title = 'Ahavah Beauty Studio',
+  description = 'Estudio de belleza en San Román, San Francisco de Campeche, especializado en uñas, cejas, maquillaje, peinados y cabello.',
+  ogImage = '/og/ahavah-cover-v2.jpg',
   ogType = 'website',
   canonical = null
 } = {}) => {
@@ -65,32 +65,60 @@ export const generateBeautySalonJsonLd = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    "name": "Estudio de Belleza Elegante",
-    "description": "Estudio de belleza profesional especializado en uñas, maquillaje, peinados y cuidado personal con los más altos estándares de higiene y calidad.",
-    "image": "https://lovable.dev/opengraph-image-p98pqg.png",
+    "name": "Ahavah Beauty Studio",
+    "description": "Estudio de belleza en San Román, San Francisco de Campeche, especializado en uñas, cejas, maquillaje, peinados y cuidado personal con atención cálida, técnica profesional y bioseguridad.",
+    "image": "/og/ahavah-cover-v2.jpg",
+    "url": "https://glow-haven-demo.vercel.app/",
+    "hasMap": "https://www.google.com/maps/place/Ahavah+Beauty+Studio/@19.838623,-90.548665,4242m/data=!3m1!1e3!4m6!3m5!1s0x85f833049c5db98b:0x73900e75d332c356!8m2!3d19.8386225!4d-90.5486647!16s%2Fg%2F11x21l63yd",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Ejemplo 123, Col. Centro",
-      "addressLocality": "Ciudad de México",
-      "addressRegion": "CDMX",
-      "postalCode": "01000",
+      "streetAddress": "C. 10 477, Barrio de San Román",
+      "addressLocality": "San Francisco de Campeche",
+      "addressRegion": "Campeche",
+      "postalCode": "24040",
       "addressCountry": "MX"
     },
-    "telephone": "+52-1-55-1234-5678",
-    "priceRange": "$$$",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 19.8386225,
+      "longitude": -90.5486647
+    },
+    "telephone": "+52-981-206-1662",
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "City",
+      "name": "San Francisco de Campeche"
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": ["Monday", "Wednesday", "Thursday"],
+        "opens": "11:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Friday"],
         "opens": "10:00",
-        "closes": "20:00"
+        "closes": "17:00"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": "Saturday",
-        "opens": "09:00",
+        "opens": "11:00",
         "closes": "18:00"
       }
+    ],
+    "sameAs": [
+      "https://instagram.com/ahavahbeautystudio",
+      "https://www.facebook.com/profile.php?id=100082316936923",
+      "https://wa.me/529812061662"
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Uñas acrílicas y gel semipermanente" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño y laminado de cejas" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maquillaje social, novias y XV años" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinados y cortes de cabello" } }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

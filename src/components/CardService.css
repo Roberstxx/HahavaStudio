@@ -121,7 +121,7 @@
 }
 
 .card-service-amenities .chip strong {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--ff-heading);
   font-weight: var(--fw-semibold);
 }
 

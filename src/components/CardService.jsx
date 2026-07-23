@@ -83,11 +83,11 @@ const CardService = ({ service, onOpenDetail }) => {
               onClick={() => onOpenDetail(service)}
               className="btn btn-outline btn-sm"
             >
-              Detalle
+              Ver detalle
             </button>
           ) : (
             <Link to={`/servicios/${service.slug}`} className="btn btn-outline btn-sm">
-              Detalle
+              Ver detalle
             </Link>
           )}
           <button onClick={handleBooking} className="btn btn-primary btn-sm" type="button">

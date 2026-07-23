@@ -16,7 +16,7 @@ const FiltersBar = ({
       <div className="filters-header">
         <div>
           <h3 className="filters-title">Encuentra tu servicio</h3>
-          <p className="filters-subtitle">Busca por nombre o elige una categoria.</p>
+          <p className="filters-subtitle">Busca por nombre o elige una categoría.</p>
         </div>
         {hasActiveFilters && (
           <button
@@ -41,13 +41,13 @@ const FiltersBar = ({
           placeholder="Buscar gel, cejas, corte..."
           value={filters.search}
           onChange={(e) => updateFilter('search', e.target.value)}
-          aria-label="Buscar servicios por nombre o descripcion"
+          aria-label="Buscar servicios por nombre o descripción"
         />
       </div>
 
       <div className="filter-group filter-group-categories">
-        <span className="filter-label">Categorias</span>
-        <div className="category-filter-scroll" role="group" aria-label="Filtrar por categoria">
+        <span className="filter-label">Categorías</span>
+        <div className="category-filter-scroll" role="group" aria-label="Filtrar por categoría">
           <button
             type="button"
             onClick={() => updateFilter('category', '')}
@@ -95,16 +95,16 @@ const FiltersBar = ({
 
         <div className="filter-group">
           <label htmlFor="duration-select" className="filter-label">
-            Duracion
+            Duración
           </label>
           <select
             id="duration-select"
             className="select"
             value={filters.duration}
             onChange={(e) => updateFilter('duration', e.target.value)}
-            aria-label="Filtrar por duracion"
+            aria-label="Filtrar por duración"
           >
-            <option value="">Cualquier duracion</option>
+            <option value="">Cualquier duración</option>
             {durationRanges.map(range => (
               <option key={range.id} value={range.id}>
                 {range.name}
