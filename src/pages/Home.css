@@ -738,6 +738,53 @@
   }
 }
 
+#opiniones {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
+}
+
+#opiniones::after {
+  content: "";
+  position: absolute;
+  left: -120px;
+  bottom: -140px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+#opiniones .container {
+  position: relative;
+  z-index: 1;
+}
+
+#opiniones .section-title {
+  color: #fff !important;
+  text-shadow: 0 12px 30px rgba(199, 27, 91, 0.34);
+}
+
+#opiniones .section-subtitle {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 8px 22px rgba(199, 27, 91, 0.22);
+}
+
+#opiniones .card-review {
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 42px rgba(199, 27, 91, 0.14);
+}
+
+#opiniones .card-review:hover {
+  box-shadow: 0 24px 56px rgba(199, 27, 91, 0.24);
+}
+
 /* CTA Strip */
 .cta-strip {
   background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
