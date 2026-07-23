@@ -48,10 +48,9 @@
   /* Añadimos un toque de rosa fuerte de forma sutil (baja opacidad) */
   background:
     /* Más rosa: aumentar opacidad para dar mayor carácter sin saturar fotos */
-    radial-gradient(circle at 18% 16%, rgba(199, 27, 91, 0.12), transparent 20%),
-    radial-gradient(circle at 18% 16%, rgba(247, 71, 128, 0.12), transparent 30%),
-    radial-gradient(circle at 84% 70%, rgba(178, 138, 87, 0.08), transparent 26%),
-    linear-gradient(180deg, #fff4f8 0%, var(--clr-bg-soft) 100%);
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.3), transparent 25%),
+    radial-gradient(circle at 86% 74%, rgba(255, 209, 213, 0.38), transparent 24%),
+    linear-gradient(180deg, #fc6998 0%, #fa8fb1 100%);
 }
 
 #servicios::before {
@@ -59,7 +58,7 @@
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(247, 71, 128, 0.22), rgba(178, 138, 87, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52), rgba(255, 209, 213, 0.48), transparent);
 }
 
 #servicios::after {
@@ -70,8 +69,8 @@
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: rgba(247, 71, 128, 0.08);
-  filter: blur(8px);
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(10px);
   pointer-events: none;
 }
 
@@ -84,7 +83,13 @@
   position: relative;
   width: fit-content;
   margin-inline: auto;
+  color: var(--clr-surface);
+  text-shadow: 0 10px 28px rgba(199, 27, 91, 0.26);
   text-transform: none;
+}
+
+.services-preview-header .section-subtitle {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .services-preview-header .section-title::after {
@@ -96,7 +101,7 @@
   height: 3px;
   border-radius: var(--radius-full);
   transform: translateX(-50%);
-  background: linear-gradient(90deg, var(--clr-primary), #b28a57);
+  background: linear-gradient(90deg, var(--clr-surface), rgba(255, 255, 255, 0.55));
 }
 
 .home-services-preview {
@@ -113,15 +118,18 @@
   align-items: flex-start;
   min-width: 0;
   height: 100%;
-  padding: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 42px rgba(199, 27, 91, 0.14);
   transition: transform var(--speed) var(--easing), background var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
 .home-service-category:hover {
   transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.46);
-  box-shadow: 0 18px 44px rgba(247, 71, 128, 0.08);
+  background: var(--clr-surface);
+  box-shadow: 0 24px 56px rgba(199, 27, 91, 0.24);
 }
 
 .home-service-image-wrap {
@@ -130,9 +138,9 @@
   height: clamp(210px, 18vw, 250px);
   margin-bottom: var(--space-8);
   overflow: hidden;
-  border: 1px solid rgba(247, 71, 128, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: var(--radius);
-  box-shadow: 0 18px 38px rgba(247, 71, 128, 0.1);
+  box-shadow: 0 18px 38px rgba(199, 27, 91, 0.18);
 }
 
 .home-service-image-wrap img {
@@ -160,7 +168,7 @@
   place-items: center;
   border: 3px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  background: linear-gradient(135deg, #f6a9bd, var(--clr-secondary));
+  background: linear-gradient(135deg, #ffc1d5, #f74780);
   color: var(--clr-surface);
   font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
@@ -175,7 +183,7 @@
 
 .home-service-category h3 {
   margin: 0 0 var(--space-3);
-  color: #b28a57;
+  color: #c71b5b;
   font-family: var(--ff-heading);
   font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
@@ -209,70 +217,6 @@
   height: 5px;
   border-radius: 50%;
   background: var(--clr-primary);
-}
-
-/* Stronger home services contrast using the client pink palette. */
-#servicios {
-  background:
-    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.34), transparent 26%),
-    radial-gradient(circle at 86% 74%, rgba(255, 209, 213, 0.4), transparent 24%),
-    linear-gradient(180deg, #fc6998 0%, #fa8fb1 100%);
-}
-
-#servicios::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), rgba(255, 209, 213, 0.5), transparent);
-}
-
-#servicios::after {
-  background: rgba(255, 255, 255, 0.22);
-  filter: blur(10px);
-}
-
-.services-preview-header .section-title {
-  color: var(--clr-surface);
-  text-shadow: 0 10px 28px rgba(199, 27, 91, 0.26);
-}
-
-.services-preview-header .section-subtitle {
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.services-preview-header .section-title::after {
-  background: linear-gradient(90deg, var(--clr-surface), rgba(255, 255, 255, 0.55));
-}
-
-.home-service-category {
-  padding: var(--space-4);
-  border: 1px solid rgba(255, 255, 255, 0.36);
-  background: rgba(255, 255, 255, 0.13);
-  box-shadow: 0 18px 44px rgba(199, 27, 91, 0.08);
-}
-
-.home-service-category:hover {
-  background: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 22px 54px rgba(199, 27, 91, 0.2);
-}
-
-.home-service-image-wrap {
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 18px 38px rgba(199, 27, 91, 0.18);
-}
-
-.home-service-icon {
-  background: linear-gradient(135deg, #ffc1d5, #f74780);
-}
-
-.home-service-category h3 {
-  color: var(--clr-surface);
-  text-shadow: 0 8px 18px rgba(199, 27, 91, 0.22);
-}
-
-.home-service-category ul {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.home-service-category li::before {
-  background: var(--clr-surface);
 }
 
 @media (max-width: 1023px) {
@@ -921,7 +865,6 @@
 .page-wrapper main > section { background: var(--clr-bg-muted); }
 
 /* Si tu Home YA tiene los ids, esto es lo más limpio */
-#servicios,
 #politicas-seguridad,
 #galeria,
 
