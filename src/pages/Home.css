@@ -946,7 +946,6 @@
 #faq { background: var(--clr-bg-soft) !important; }
 
 #experiencia-amenidades,
-#filosofia-conocenos,
 #contacto
  { background: var(--clr-bg-warm) !important; }
 
@@ -988,6 +987,17 @@
   overflow: hidden;
   padding-top: clamp(var(--space-20), 7vw, var(--space-28)) !important;
   padding-bottom: clamp(var(--space-20), 7vw, var(--space-28)) !important;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
+}
+
+.page-wrapper main #filosofia-conocenos.py-16 {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
 }
 
 #filosofia-conocenos > .container {
@@ -1019,7 +1029,7 @@
   padding: var(--space-2) var(--space-4);
   border: 1px solid rgba(247, 71, 128, 0.22);
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--clr-primary-dark);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
@@ -1029,9 +1039,11 @@
 
 #filosofia-conocenos .section-title,
 #filosofia-conocenos .section-subtitle {
+  color: #fff !important;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 12px 30px rgba(199, 27, 91, 0.34);
 }
 
 #filosofia-conocenos .section-subtitle {
@@ -1048,7 +1060,11 @@
   padding: var(--space-3) 0;
   gap: 0;
   overflow: hidden;
-  border-block: 1px solid rgba(178, 138, 87, 0.12);
+  padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8));
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 52px rgba(199, 27, 91, 0.16);
 }
 
 .home-brand-value {
