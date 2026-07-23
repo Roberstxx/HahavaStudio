@@ -121,8 +121,7 @@ footer {
   background: var(--clr-bg-soft);
 }
 
-#experiencia-amenidades,
-#faq {
+#experiencia-amenidades {
   background: var(--clr-bg-warm);
 }
 

@@ -941,9 +941,7 @@
 
 /* Si tu Home YA tiene los ids, esto es lo más limpio */
 #politicas-seguridad,
-#galeria,
-
-#faq { background: var(--clr-bg-soft) !important; }
+#galeria { background: var(--clr-bg-soft) !important; }
 
 #experiencia-amenidades,
 #contacto
@@ -954,6 +952,64 @@
     radial-gradient(circle at 14% 20%, rgba(247, 71, 128, 0.08), transparent 28%),
     radial-gradient(circle at 86% 72%, rgba(178, 138, 87, 0.08), transparent 24%),
     linear-gradient(180deg, #fff8fb 0%, var(--clr-bg-soft) 100%) !important;
+}
+
+#faq {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
+}
+
+.page-wrapper main #faq.py-16 {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 76%, rgba(255, 193, 213, 0.28), transparent 25%),
+    linear-gradient(180deg, #f74780 0%, #fc6998 100%) !important;
+}
+
+#faq .container {
+  position: relative;
+  z-index: 1;
+}
+
+#faq .section-title {
+  color: #fff !important;
+  text-shadow: 0 12px 30px rgba(199, 27, 91, 0.34);
+}
+
+#faq .section-subtitle {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 8px 22px rgba(199, 27, 91, 0.22);
+}
+
+#faq .card {
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 58px rgba(199, 27, 91, 0.18);
+}
+
+#faq .card h3 {
+  color: #c71b5b;
+}
+
+#faq .card p {
+  color: var(--clr-gray-700);
+}
+
+#faq .btn {
+  background: #fff;
+  color: #f74780 !important;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 18px 38px rgba(199, 27, 91, 0.24);
+}
+
+#faq .btn:hover {
+  color: #c71b5b !important;
+  background: #fff;
+  box-shadow: 0 24px 46px rgba(199, 27, 91, 0.32);
 }
 
 /* ===== HOME: Preview Politicas ===== */
