@@ -1057,14 +1057,13 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: min(100%, 1180px);
   margin: var(--space-2) auto 0;
-  padding: var(--space-3) 0;
   gap: 0;
   overflow: hidden;
-  padding: var(--space-6) clamp(var(--space-4), 3vw, var(--space-8));
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 20px 52px rgba(199, 27, 91, 0.16);
+  padding: var(--space-6) clamp(var(--space-2), 3vw, var(--space-6));
+  border-block: 1px solid rgba(255, 255, 255, 0.34);
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  box-shadow: none;
 }
 
 .home-brand-value {
@@ -1074,8 +1073,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--space-8) var(--space-8) var(--space-7);
+  padding: var(--space-8) clamp(var(--space-5), 3vw, var(--space-9)) var(--space-7);
   text-align: center;
+  transition: transform var(--speed) var(--easing), background var(--speed) var(--easing);
+}
+
+.home-brand-value:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .home-brand-value + .home-brand-value::before {
@@ -1086,7 +1091,7 @@
   bottom: var(--space-5);
   display: block;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(178, 138, 87, 0.22), transparent);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.28), transparent);
 }
 
 .home-brand-value-icon {
@@ -1096,21 +1101,23 @@
   margin-bottom: var(--space-6);
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(246, 217, 221, 0.68));
-  color: hsl(var(--cafe-600));
-  box-shadow: inset 0 0 0 1px rgba(178, 138, 87, 0.1), 0 12px 28px rgba(178, 138, 87, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(199, 27, 91, 0.16);
   transition: transform var(--speed) var(--easing), color var(--speed) var(--easing), box-shadow var(--speed) var(--easing);
 }
 
 .home-brand-value:hover .home-brand-value-icon {
-  color: var(--clr-primary);
+  color: #fff;
   transform: translateY(-3px) scale(1.04);
-  box-shadow: inset 0 0 0 1px rgba(247, 71, 128, 0.14), 0 16px 32px rgba(247, 71, 128, 0.14);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 16px 32px rgba(199, 27, 91, 0.22);
 }
 
 .home-brand-value h3 {
   margin: 0 0 var(--space-4);
-  color: hsl(var(--cafe-700));
+  color: #fff;
   font-family: var(--ff-body);
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
@@ -1121,7 +1128,7 @@
 .home-brand-value p {
   max-width: 330px;
   margin: 0 auto;
-  color: var(--clr-gray-700);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
   line-height: 1.8;
 }
@@ -1159,14 +1166,15 @@
   .home-brand-values {
     grid-template-columns: 1fr;
     gap: var(--space-4);
-    border-block: 0;
+    border-block: 1px solid rgba(255, 255, 255, 0.28);
+    background: transparent;
   }
 
   .home-brand-value {
     padding: var(--space-7) var(--space-5);
-    border: 1px solid rgba(247, 71, 128, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.62);
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .home-brand-value-icon {
