@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Car, Coffee, CreditCard, Lock, Music, Plug, ShieldCheck, Snowflake, Tv, Wifi } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
@@ -7,16 +8,16 @@ import useScrollToTop from '../hooks/useScrollToTop';
 import './Experience.css';
 
 const amenities = [
-  { icon: '•', title: 'Wifi ilimitado', description: 'Conexión estable para trabajar, esperar o compartir tu experiencia.' },
-  { icon: '•', title: 'Aire acondicionado', description: 'Clima agradable durante todo el año para tu comodidad.' },
-  { icon: '•', title: 'TV con streaming', description: 'Entretenimiento y playlists para acompañar tu cita.' },
-  { icon: '•', title: 'Snacks y bebidas', description: 'Detalles de cortesía para que tu visita se sienta más cómoda.' },
-  { icon: '•', title: 'Estacionamiento', description: 'Espacio disponible para clientas con cita confirmada.' },
-  { icon: '•', title: 'Música ambiental', description: 'Selección sonora pensada para un ambiente tranquilo.' },
-  { icon: '•', title: 'Higiene visible', description: 'Protocolos claros y herramientas preparadas por cliente.' },
-  { icon: '•', title: 'Privacidad', description: 'Atención personalizada en un entorno cómodo y reservado.' },
-  { icon: '•', title: 'Cargadores', description: 'Conexiones disponibles para que no tengas que preocuparte.' },
-  { icon: '•', title: 'Pago en línea', description: 'Opciones de pago prácticas según disponibilidad.' }
+  { Icon: Wifi, title: 'Wifi ilimitado', description: 'Conexión estable para trabajar, esperar o compartir tu experiencia.' },
+  { Icon: Snowflake, title: 'Aire acondicionado', description: 'Clima agradable durante todo el año para tu comodidad.' },
+  { Icon: Tv, title: 'TV con streaming', description: 'Entretenimiento y playlists para acompañar tu cita.' },
+  { Icon: Coffee, title: 'Snacks y bebidas', description: 'Detalles de cortesía para que tu visita se sienta más cómoda.' },
+  { Icon: Car, title: 'Estacionamiento', description: 'Espacio disponible para clientas con cita confirmada.' },
+  { Icon: Music, title: 'Música ambiental', description: 'Selección sonora pensada para un ambiente tranquilo.' },
+  { Icon: ShieldCheck, title: 'Higiene visible', description: 'Protocolos claros y herramientas preparadas por cliente.' },
+  { Icon: Lock, title: 'Privacidad', description: 'Atención personalizada en un entorno cómodo y reservado.' },
+  { Icon: Plug, title: 'Cargadores', description: 'Conexiones disponibles para que no tengas que preocuparte.' },
+  { Icon: CreditCard, title: 'Pago en línea', description: 'Opciones de pago prácticas según disponibilidad.' }
 ];
 
 const premiumFeatures = [
@@ -46,14 +47,34 @@ const Experience = () => {
       <WhatsAppFloat />
 
       <main className="experience-page">
-        <div className="container py-12">
-          <header className="page-header">
-            <h1 className="page-title">Experiencia & Amenidades</h1>
-            <p className="page-subtitle">
-              Cada visita está pensada para que te sientas tranquila, acompañada
-              y cuidada desde que llegas hasta que termina tu servicio.
+        <section className="experience-cover-poster" aria-label="Nuestras amenidades">
+          <img
+            src="/images/Amenidades.webp"
+            alt="Modelo editorial para la experiencia de amenidades Ahavah"
+            loading="eager"
+          />
+          <div className="experience-cover-poster__content">
+            <span>Amenidades</span>
+            <h1>
+              <span>Nuestras</span>
+              <span>Amenidades</span>
+            </h1>
+            <p>
+              Pequeños detalles que hacen especial cada visita. Pensamos en tu
+              comodidad para que solo te preocupes por disfrutar.
             </p>
-          </header>
+          </div>
+        </section>
+
+        <div className="container py-12">
+          <section className="experience-local-band" aria-label="Experiencia de belleza en Campeche">
+            <span>San Román, Campeche</span>
+            <h2>Tu lugar para relajarte y cuidarte</h2>
+            <p>
+              Una experiencia de belleza en Campeche pensada para que tu cita se
+              sienta cómoda, limpia y sin prisas.
+            </p>
+          </section>
 
           <section
             className="amenities-grid"
@@ -61,15 +82,17 @@ const Experience = () => {
             data-count={`${amenityCount} amenidades`}
             aria-label="Amenidades disponibles"
           >
-            {amenities.map((item, index) => (
+            {amenities.map(({ Icon, title, description }, index) => (
               <article
-                key={item.title}
+                key={title}
                 className="amenity-tile"
                 style={{ animationDelay: `${0.05 * (index + 1)}s` }}
               >
-                <div className="amenity-icon" aria-hidden="true">{item.icon}</div>
-                <h2>{item.title}</h2>
-                <p>{item.description}</p>
+                <div className="amenity-icon" aria-hidden="true">
+                  <Icon size={28} strokeWidth={1.6} />
+                </div>
+                <h2>{title}</h2>
+                <p>{description}</p>
               </article>
             ))}
           </section>

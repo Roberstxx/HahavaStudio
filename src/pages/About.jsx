@@ -54,7 +54,7 @@ const About = () => {
       <main className="about-page">
         <section className="about-cover-poster" aria-label="Conócenos, servicios únicos">
           <img
-            src="/images/Conocenos.png"
+            src="/images/Conocenos.webp"
             alt="Editorial visual de Ahavah Beauty Studio"
             loading="eager"
           />
@@ -77,6 +77,13 @@ const About = () => {
                 Te recomendamos lo que realmente necesitas, no lo más costoso,
                 para que invertir en ti se sienta claro, honesto y sin culpa.
               </p>
+              <div className="about-local-note">
+                <span>En San Román, Campeche</span>
+                <p>
+                  Creamos looks para novias, XV años y eventos, además de servicios
+                  de uñas, cejas, maquillaje, peinados y cabello con atención personalizada.
+                </p>
+              </div>
             </div>
 
             <div className="about-portrait">
@@ -243,7 +250,7 @@ const About = () => {
 
         <section className="about-brand-question" aria-label="Qué significa nuestra marca">
           <img
-            src="/images/MarcaQ.png"
+            src="/images/MarcaQ.webp"
             alt="Collage visual de Ahavah Beauty Studio"
             loading="lazy"
           />

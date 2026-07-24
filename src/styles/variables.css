@@ -133,6 +133,12 @@
   --cafe-600: 24 12% 50%;
 }
 
+@media (max-width: 767px) {
+  :root {
+    --header-offset: 74px;
+  }
+}
+
 /* Responsive Typography */
 @media (min-width: 768px) {
   :root {

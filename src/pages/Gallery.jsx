@@ -6,6 +6,7 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import { portfolioItems, getPortfolioByCategory } from '../data/portfolio';
 import { categories } from '../data/services';
 import { setDocumentMeta } from '../utils/seo';
+import { buildWhatsAppUrl } from '../utils/whatsapp';
 import useScrollToTop from '../hooks/useScrollToTop';
 import './Gallery.css';
 
@@ -32,10 +33,15 @@ const Gallery = () => {
     ? getPortfolioByCategory(selectedCategory)
     : portfolioItems;
 
-  const featuredItem = useMemo(
-    () => portfolioItems.find(item => item.featured) || portfolioItems[0],
-    []
-  );
+  const displayPortfolio = useMemo(() => {
+    const beforeAfter = filteredPortfolio.find(item => item.beforeImage && item.afterImage);
+    if (!beforeAfter) return filteredPortfolio;
+
+    return [
+      beforeAfter,
+      ...filteredPortfolio.filter(item => item.id !== beforeAfter.id)
+    ];
+  }, [filteredPortfolio]);
 
   const selectedCategoryName = selectedCategory
     ? availableCategories.find(cat => cat.id === selectedCategory)?.name
@@ -106,37 +112,31 @@ const Gallery = () => {
 
       <main className="gallery-page">
         <section className="gallery-hero">
-          <div className="container gallery-hero-grid">
-            <div className="gallery-hero-copy">
-              <span className="gallery-kicker">Resultados Ahavah</span>
-              <h1>Galería de resultados</h1>
-              <p>
-                Una selección de trabajos reales para inspirarte antes de tu cita:
-                uñas, maquillaje, peinados y transformaciones con acabado profesional.
-              </p>
-              <div className="gallery-hero-stats" aria-label="Resumen de galería">
-                <span><strong>{portfolioItems.length}</strong> trabajos</span>
-                <span><strong>{availableCategories.length}</strong> categorías</span>
-                <span><strong>{portfolioItems.filter(item => item.featured).length}</strong> destacados</span>
-              </div>
-            </div>
-
-            {featuredItem && (
-              <article className="gallery-featured-card">
-                <div className="gallery-featured-media">
-                  {renderMedia(featuredItem)}
-                </div>
-                <div className="gallery-featured-info">
-                <span>Trabajo destacado</span>
-                  <h2>{featuredItem.title}</h2>
-                  <p>{featuredItem.description}</p>
-                </div>
-              </article>
-            )}
+          <img
+            src="/images/Galeria.webp"
+            alt="Modelo editorial para la galería de Ahavah Beauty Studio"
+            loading="eager"
+          />
+          <div className="gallery-hero-content">
+            <span className="gallery-hero-kicker">Galería</span>
+            <h1>
+              <span>Nuestra inspiración</span>
+              <em>eres tú.</em>
+            </h1>
+            <p>
+              Conoce algunos de los trabajos que hemos realizado en maquillaje,
+              uñas, peinados y más.
+            </p>
+            <p>
+              Cada detalle está pensado para resaltar tu belleza natural.
+            </p>
+            <a href="#trabajos-galeria" className="gallery-hero-link">
+              Explora nuestros trabajos
+            </a>
           </div>
         </section>
 
-        <section className="gallery-results-section">
+        <section id="trabajos-galeria" className="gallery-results-section">
           <div className="container">
             <div className="gallery-toolbar">
               <div>
@@ -166,8 +166,13 @@ const Gallery = () => {
               </div>
             </div>
 
+            <div className="gallery-showcase-labels" aria-hidden="true">
+              <span>Antes & después</span>
+              <span>Nuestros trabajos</span>
+            </div>
+
             <div className="gallery-grid">
-              {filteredPortfolio.map((item, index) => (
+              {displayPortfolio.map((item, index) => (
                 <article
                   key={item.id}
                   className={`gallery-item ${item.beforeImage && item.afterImage ? 'is-before-after' : ''} ${index === 0 ? 'is-large' : ''}`}
@@ -179,12 +184,29 @@ const Gallery = () => {
                     </span>
                   </div>
                   <div className="gallery-item-info">
+                    {item.locationLabel && (
+                      <span className="gallery-location-label">{item.locationLabel}</span>
+                    )}
                     <h3 className="gallery-item-title">{item.title}</h3>
                     <p className="gallery-item-description">{item.description}</p>
                   </div>
                 </article>
               ))}
             </div>
+
+            {filteredPortfolio.length > 0 && (
+              <div className="gallery-cta-band">
+                <p>¿Lista para tu transformación?</p>
+                <a
+                  href={buildWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-sm"
+                >
+                  Reservar cita
+                </a>
+              </div>
+            )}
 
             {filteredPortfolio.length === 0 && (
               <div className="empty-state">

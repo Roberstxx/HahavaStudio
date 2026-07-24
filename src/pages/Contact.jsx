@@ -3,10 +3,9 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppFloat from '../components/WhatsAppFloat';
 import { setDocumentMeta } from '../utils/seo';
+import { buildWhatsAppUrl } from '../utils/whatsapp';
 import useScrollToTop from '../hooks/useScrollToTop';
 import './Contact.css';
-
-const EMAIL_TO = 'Correoooo'; // Cámbialo por tu correo real
 
 const IconIG = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -58,16 +57,6 @@ const Contact = () => {
     { label: 'TikTok', href: 'https://www.tiktok.com/@ahavahbeautystudio', Icon: IconTT },
   ];
 
-  const serviceOptions = [
-    'Uñas acrílicas',
-    'Gel semipermanente',
-    'Manicure / Pedicure',
-    'Maquillaje social',
-    'Peinado',
-    'Cejas',
-    'Otro'
-  ];
-
   const schedule = [
     { day: 'Lunes', time: '11:00 am - 6:00 pm' },
     { day: 'Martes', time: '10:00 am - 5:00 pm' },
@@ -77,21 +66,6 @@ const Contact = () => {
     { day: 'Sábado', time: '11:00 am - 6:00 pm' },
     { day: 'Domingo', time: 'Cerrado' },
   ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const nombre = form.get('nombre');
-    const servicio = form.get('servicio');
-    const telefono = form.get('telefono');
-    const mensaje = form.get('mensaje');
-    const subject = encodeURIComponent(`Consulta - ${servicio}`);
-    const body = encodeURIComponent(
-      `Nombre: ${nombre}\nTeléfono: ${telefono}\nServicio: ${servicio}\n\nMensaje:\n${mensaje}`
-    );
-    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
-    e.currentTarget.reset();
-  };
 
   return (
     <div className="page-wrapper">
@@ -111,6 +85,16 @@ const Contact = () => {
                 <Icon />
               </a>
             ))}
+          </section>
+
+          <section className="contact-local-intro" aria-label="Ubicación de Ahavah Beauty Studio">
+            <span>San Román, Campeche</span>
+            <h2>Estamos cerca de ti en San Francisco de Campeche</h2>
+            <p>
+              Si buscas salón de belleza en Campeche para uñas, cejas,
+              maquillaje, peinados o cortes de cabello, puedes visitarnos en
+              C. 10, Barrio de San Román, con atención únicamente por cita.
+            </p>
           </section>
 
           <div className="contact-grid">
@@ -143,27 +127,20 @@ const Contact = () => {
               </p>
             </section>
 
-            <section className="contact-card">
-              <h2>Escríbenos</h2>
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <label htmlFor="nombre">Nombre</label>
-                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" required />
-
-                <label htmlFor="servicio">Servicio de interés</label>
-                <select id="servicio" name="servicio" required>
-                  {serviceOptions.map((opt) => (
-                    <option key={opt}>{opt}</option>
-                  ))}
-                </select>
-
-                <label htmlFor="telefono">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" placeholder="Ej. +52 981 206 1662" required />
-
-                <label htmlFor="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows={4} placeholder="Cuéntanos qué servicio necesitas o qué fecha prefieres"></textarea>
-
-                <button type="submit" className="btn btn-primary">Enviar mensaje</button>
-              </form>
+            <section className="contact-card contact-whatsapp-card">
+              <h2>Reserva por WhatsApp</h2>
+              <p>
+                Escríbenos para revisar disponibilidad, resolver dudas y confirmar
+                tu cita con anticipo.
+              </p>
+              <a
+                href={buildWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Agendar por WhatsApp
+              </a>
             </section>
           </div>
 

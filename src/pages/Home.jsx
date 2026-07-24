@@ -174,6 +174,15 @@ const Home = () => {
           </div>
         </section>
 
+        <section id="belleza-campeche" className="home-local-band" aria-label="Ahavah Beauty Studio en Campeche">
+          <div className="container">
+            <p>
+              <strong>Ahavah Beauty Studio</strong>
+              <span>Tu estudio de belleza en San Román, Campeche.</span>
+            </p>
+          </div>
+        </section>
+
         <section id="servicios" className="py-16">
           <div className="container">
             <div className="section-header services-preview-header">

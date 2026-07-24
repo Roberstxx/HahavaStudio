@@ -61,16 +61,16 @@
 }
 
 .about-cover-poster__text h1 {
-  width: min(100%, 980px);
+  width: min(100%, 1120px);
   margin: 0;
   color: #f7efdf;
   font-family: var(--ff-heading);
-  font-size: clamp(4.4rem, 10vw, 10.25rem);
+  font-size: clamp(4rem, 8.6vw, 9rem);
   font-weight: var(--fw-semibold);
   line-height: 0.88;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  text-wrap: balance;
+  white-space: nowrap;
   text-shadow:
     0 3px 0 rgba(183, 75, 113, 0.42),
     0 18px 38px rgba(128, 30, 83, 0.2);
@@ -180,6 +180,33 @@
   margin-top: var(--space-3);
   color: var(--clr-text);
   font-weight: var(--fw-medium);
+}
+
+.about-local-note {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 720px;
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border-left: 4px solid var(--about-pink);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-local-note span {
+  color: var(--about-pink-dark);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-local-note p {
+  margin: 0;
+  color: var(--clr-gray-700);
+  font-size: var(--fs-base);
+  line-height: 1.7;
 }
 
 .about-portrait {
@@ -1572,6 +1599,7 @@
     width: min(100%, 720px);
     font-size: clamp(3.6rem, 14vw, 6.4rem);
     line-height: 0.9;
+    white-space: normal;
   }
 
   .about-cover-poster__text p {
@@ -1707,6 +1735,7 @@
     width: min(100%, 420px);
     font-size: clamp(2.85rem, 13vw, 4.3rem);
     line-height: 0.92;
+    white-space: normal;
   }
 
   .about-cover-poster__text p {

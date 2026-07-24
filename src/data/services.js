@@ -6,6 +6,16 @@
   'No realizamos servicios sobre uñas o piel con infecciones activas, hongos o lesiones sin valoración previa.'
 ];
 
+const localCategoryContext = {
+  unas: 'Servicio de uñas en San Román, Campeche, pensado para un acabado cuidado, resistente y personalizado.',
+  manicure: 'Manicure profesional en Campeche, realizado con preparación cuidadosa, higiene visible y atención personalizada.',
+  pedicure: 'Pedicure en San Francisco de Campeche para mantener tus pies cuidados, cómodos y con un acabado limpio.',
+  'nail-art': 'Nail art en Campeche para complementar tu set con diseños personalizados, detalles finos y estilo propio.',
+  cejas: 'Servicio de cejas en Campeche con diseño personalizado para armonizar tus facciones y realzar tu mirada.',
+  maquillaje: 'Maquillaje profesional en Campeche para eventos, sesiones, novias, XV años y ocasiones especiales.',
+  cabello: 'Servicio de cabello en Campeche con atención personalizada para cortes, peinados y acabados especiales.'
+};
+
 const makeService = ({
   id,
   name,
@@ -25,7 +35,7 @@ const makeService = ({
   name,
   category,
   shortDescription: description,
-  fullDescription: description,
+  fullDescription: `${description} ${localCategoryContext[category] || 'Servicio de belleza en San Román, Campeche, con atención profesional y cuidado personalizado.'}`,
   duration,
   priceFrom,
   priceTo,

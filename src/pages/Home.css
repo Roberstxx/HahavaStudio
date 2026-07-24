@@ -219,6 +219,37 @@
   background: var(--clr-primary);
 }
 
+.home-local-band {
+  padding: var(--space-5) 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 228, 236, 0.72), rgba(255, 250, 246, 0.92));
+  border-block: var(--border-soft);
+}
+
+.home-local-band p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: 0;
+  color: var(--clr-gray-700);
+  font-size: clamp(var(--fs-sm), 1.35vw, var(--fs-lg));
+  line-height: 1.5;
+  text-align: center;
+}
+
+.home-local-band strong {
+  color: var(--clr-primary-dark);
+  font-family: var(--ff-heading);
+  font-size: 1.25em;
+  font-weight: var(--fw-semibold);
+  line-height: 1.15;
+}
+
+.home-local-band span {
+  align-self: center;
+}
+
 @media (max-width: 1023px) {
   .home-services-preview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -227,12 +258,14 @@
   .home-service-image-wrap {
     height: clamp(220px, 34vw, 290px);
   }
+
 }
 
 @media (max-width: 560px) {
   .home-services-preview {
     grid-template-columns: 1fr;
   }
+
 }
 
 .page-wrapper main #servicios.py-16 {

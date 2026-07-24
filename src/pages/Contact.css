@@ -10,7 +10,7 @@
 /* Redes sociales — mismos “badges” del footer */
 .social-links {
   display: flex; justify-content: center; flex-wrap: wrap;
-  gap: var(--space-3); margin-bottom: var(--space-12);
+  gap: var(--space-3); margin-bottom: var(--space-7);
 }
 .social-btn {
   width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
@@ -19,12 +19,53 @@
 .social-btn svg { width: 28px; height: 28px; display: block; }
 .social-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
+.contact-local-intro {
+  max-width: 900px;
+  margin: 0 auto var(--space-6);
+  padding: clamp(var(--space-5), 3vw, var(--space-7));
+  border: var(--border-soft);
+  border-radius: var(--radius-sm);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(217, 240, 216, 0.48), transparent 28%),
+    rgba(255, 255, 255, 0.82);
+  text-align: center;
+  box-shadow: 0 16px 42px rgba(129, 85, 92, 0.07);
+}
+
+.contact-local-intro span {
+  display: inline-flex;
+  margin-bottom: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--clr-secondary);
+  color: var(--clr-primary-dark);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.contact-local-intro h2 {
+  max-width: 760px;
+  margin: 0 auto var(--space-3);
+  color: var(--clr-text);
+  font-family: var(--ff-heading);
+  font-size: clamp(1.85rem, 3.2vw, var(--fs-4xl));
+  line-height: 1.08;
+}
+
+.contact-local-intro p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--clr-gray-700);
+  font-size: clamp(var(--fs-base), 1.1vw, var(--fs-lg));
+  line-height: 1.8;
+}
+
 /* Grid */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: var(--space-8);
-  margin-top: var(--space-12);
+  margin-top: 0;
 }
 
 /* Card base */
@@ -74,16 +115,22 @@
   padding-bottom: 2px;
 }
 
-/* Form */
-.contact-form { display: grid; gap: var(--space-3); }
-.contact-form input, .contact-form textarea, .contact-form select {
-  border-radius: var(--radius-sm);
-  border: var(--border-soft);
-  padding: var(--space-3); font-size: var(--fs-base);
-  background: var(--clr-surface);
+.contact-whatsapp-card {
+  display: grid;
+  align-content: center;
+  gap: var(--space-4);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 228, 236, 0.72));
 }
-.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
-  border-color: var(--clr-primary); background: var(--clr-surface);
+
+.contact-whatsapp-card p {
+  margin: 0;
+  color: var(--clr-gray-700);
+  line-height: 1.75;
+}
+
+.contact-whatsapp-card .btn {
+  width: fit-content;
 }
 
 /* Recordatorios — más aire */
@@ -94,11 +141,6 @@
   color: var(--clr-gray-700);
 }
 
-.contact-form textarea { 
-  resize: none;
- }
-
-
 /* Animaciones suaves */
 @keyframes fadeInUp { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
 .animate-fade-in { animation: fadeInUp 0.8s var(--easing) forwards; }
@@ -107,6 +149,7 @@
 @media (max-width: 768px) {
   .schedule-row { grid-template-columns: 1fr; gap: 6px; }
   .map-address { font-size: var(--fs-base); }
+  .contact-whatsapp-card .btn { width: 100%; }
 }
 
 

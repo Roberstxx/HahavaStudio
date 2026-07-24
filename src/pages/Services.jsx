@@ -56,8 +56,9 @@ const Services = () => {
                 <span className="services-eyebrow">Catálogo Ahavah</span>
                 <h1 className="services-hero-title">Servicios para verte impecable y sentirte cuidada</h1>
                 <p className="services-hero-text">
-                  Explora uñas, manicure, pedicure, nail art, cejas, maquillaje y cabello.
-                  Cada servicio incluye valoración profesional, agenda con anticipo y protocolos visibles.
+                  Explora uñas, manicure, pedicure, nail art, cejas, maquillaje
+                  y cabello. Cada cita incluye valoración profesional, agenda con
+                  anticipo y protocolos visibles.
                 </p>
                 <div className="services-hero-actions">
                   <a href="#catalogo-servicios" className="btn btn-primary">Explorar catálogo</a>
