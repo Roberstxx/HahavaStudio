@@ -436,17 +436,18 @@
   inset: 0;
   z-index: var(--z-modal);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: var(--space-4);
+  padding: calc(var(--header-offset) + var(--space-5)) var(--space-4) var(--space-5);
   background-color: rgba(26, 26, 26, 0.88);
   animation: fadeIn var(--speed) var(--easing);
+  overflow-y: auto;
 }
 
 .lightbox-close {
   position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
+  top: calc(var(--header-offset) + var(--space-3));
+  right: var(--space-5);
   z-index: 2;
   display: grid;
   width: 48px;
@@ -454,7 +455,7 @@
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(247, 71, 128, 0.92);
   color: white;
   cursor: pointer;
   font-size: var(--fs-2xl);
@@ -463,12 +464,12 @@
 
 .lightbox-close:hover {
   background-color: white;
-  color: var(--clr-text);
+  color: var(--clr-primary);
 }
 
 .lightbox-content {
   width: min(1100px, 100%);
-  max-height: 90vh;
+  max-height: calc(100vh - var(--header-offset) - var(--space-10));
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--clr-surface);
@@ -478,7 +479,7 @@
 .lightbox-image {
   display: block;
   width: 100%;
-  max-height: 72vh;
+  max-height: calc(100vh - var(--header-offset) - 190px);
   object-fit: contain;
   background: #111;
 }
@@ -608,5 +609,28 @@
   .gallery-item.is-large .gallery-image,
   .gallery-item.is-large .before-after-wrapper {
     height: 310px;
+  }
+
+  .lightbox {
+    padding: calc(var(--header-offset) + var(--space-4)) var(--space-3) var(--space-4);
+  }
+
+  .lightbox-close {
+    top: calc(var(--header-offset) + var(--space-2));
+    right: var(--space-3);
+    width: 42px;
+    height: 42px;
+  }
+
+  .lightbox-content {
+    max-height: calc(100vh - var(--header-offset) - var(--space-8));
+  }
+
+  .lightbox-image {
+    max-height: calc(100vh - var(--header-offset) - 210px);
+  }
+
+  .lightbox-info {
+    padding: var(--space-4);
   }
 }
